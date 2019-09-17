@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  p{
+    font-family: sans-serif, '黑体';
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    border: 2px solid rgba(0, 0, 200, 0.6);
+    background: rgba(0, 0, 200, 0.3);
+    color: rgba(0, 0, 200, 0.6);
+    box-shadow: 1px 1px 2px rgba(0, 0, 200, 0.4);
+    border-radius: 10px;
+    padding: 3px 10px;
+    display: inline-block;
+    cursor: pointer;
+  }
+</style>
+<body>
+<p>起个名字</p>
+</body>
+<script>
+  var p = document.querySelector('p');
+  p.addEventListener('click',function (e) {
+    let name = prompt('输入昵称:');
+    p.textContent = '昵称：'+name;//Node.textContent 属性表示一个节点及其后代的文本内容。
+  })
+  /*
+  *
+  * result = window.prompt(text, value);
+result 用来存储用户输入文字的字符串，或者是 null。
+text 用来提示用户输入文字的字符串，如果没有任何提示内容，该参数可以省略不写。
+value 文本输入框中的默认值，该参数也可以省略不写。不过在 Internet Explorer 7 和 8 中，省略该参数会导致输入框中显示默认值"undefined"。
+  *
+  * */
+</script>
+</html>

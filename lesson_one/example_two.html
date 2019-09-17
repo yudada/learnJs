@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+
+  <title>猜数字游戏</title>
+
+  <style>
+    html {
+      font-family: sans-serif
+    }
+    body {
+      width: 50%;
+      max-width: 800px;
+      min-width: 480px;
+      margin: 0 auto
+    }
+    .lastResult {
+      color: white;
+      padding: 3px
+    }
+  </style>
+</head>
+
+<body>
+<h1>猜数字游戏</h1>
+
+<p>我刚才随机选定了一个100以内的自然数。看你能否在 10 次以内猜中它。每次我都会告诉你所猜的结果是高了还是低了。</p>
+
+<div class="form">
+  <label for="guessField">请猜数: </label>
+  <input type="number" id="guessField" class="guessField">
+  <input type="submit" value="确定" class="guessSubmit">
+</div>
+
+<div class="resultParas">
+  <p class="guesses"></p>
+  <p class="lastResult"></p>
+  <p class="lowOrHi"></p>
+</div>
+
+<!--<script src="js/example_two.js"></script>-->
+</body>
+<script>
+  let randomNumber = Math.floor(Math.random()*100)+1;  //suijishu  <!-- -->
+  console.log(randomNumber);//产生一个[0，1）的随机数  0<=x<1 0<=x< = 100  2.4 = 2
+
+  const guesses = document.querySelector('#guessField');
+  const confirmBtn = document.querySelector('.guessSubmit');
+  const guessArray = document.querySelector('.guesses');
+  const result = document.querySelector('.lastResult');
+  const lowOrHi = document.querySelector('.lowOrHi');
+
+  let guessCount = 0;
+  confirmBtn.addEventListener('click',checkNumber);
+guessArray.textContent = '猜过的数：';
+  function checkNumber() {
+    let inputValue = guesses.value;
+    console.log(inputValue);
+    if(guessCount<10){
+
+
+
+
+
+      if(parseInt(inputValue) === parseInt(randomNumber)){
+        guessArray.textContent += inputValue+' ';
+        result.style.backgroundColor = 'green';
+        result.textContent = '你猜对了~';
+        lowOrHi.textContent = '';
+        let resetBtn = document.createElement('button');
+        resetBtn.textContent = '重新开始游戏';
+        document.body.appendChild(resetBtn);
+
+        resetBtn.addEventListener('click',resetGame);
+
+        guesses.disabled = true;
+        confirmBtn.disabled = true;
+      }else if(parseInt(inputValue) < parseInt(randomNumber)){
+        guessArray.textContent += inputValue+' ';
+        result.style.backgroundColor = 'red';
+        result.textContent = '你猜错了~';
+        lowOrHi.textContent = '你猜低了';
+        guesses.value = '';
+        guesses.focus();
+      }else{
+        guessArray.textContent += inputValue+' ';
+        result.style.backgroundColor = 'red';
+        result.textContent = '你猜错了~';
+        lowOrHi.textContent = '你猜高了';
+        guesses.value = '';
+        guesses.focus();
+      }/*   if(){}else if(){}else{} */
+
+
+
+
+    }else{
+      guesses.disabled = true;
+      confirmBtn.disabled = true;
+      result.style.backgroundColor = 'red';
+      result.textContent = '超过10轮，游戏结束！';
+      let resetBtn = document.createElement('button');
+      resetBtn.textContent = '重新开始游戏';
+      document.body.appendChild(resetBtn);
+      lowOrHi.textContent = '';
+      resetBtn.addEventListener('click',resetGame);
+    }
+    guessCount++;
+  }
+  let resultParas = document.querySelectorAll('.resultParas p');
+  console.log(resultParas.length);
+  function resetGame() {
+    for (let i=0;i<resultParas.length;i++){
+      //i=0 i<3 i++
+      resultParas[i].textContent = '';
+    }
+    result.style.backgroundColor = '';
+    guesses.disabled = false;
+    confirmBtn.disabled = false;
+    let resetBtn = document.querySelector('button');
+    document.body.removeChild(resetBtn);
+    guessArray.textContent = '猜过的数：';
+    guesses.value = '';
+    guesses.focus();
+  }
+
+  // checkNumber();
+</script>
+</html>
