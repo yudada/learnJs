@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  for (let i = 100; i < 1000; i++){
+    // 101%10 = 1
+    //101/100 = 1
+
+    let a = parseInt(i % 10); // 个位数
+    let b = parseInt((i % 100) / 10);  // 十位数
+    let c = parseInt((i % 1000) / 100); // 百位数
+    if(a*a*a+b*b*b+c*c*c === i){
+      console.log('水仙花数：'+i);
+    }
+  }
+</script>
+</html>
