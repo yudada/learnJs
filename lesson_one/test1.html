@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  let new_arr = [];
+  var randomArr = [];
+  let random = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  for (let i = 0; i < 10;i++){
+    let str = '';
+    let strLength = Math.floor(Math.random()*8+1);
+    for (let j = 0;j < strLength;j++){
+      str  += random[Math.floor(Math.random()*26)];
+    }
+    randomArr[i] = str;
+  }
+  console.log(randomArr);
+
+  function filterArray(arr) {
+    for (let x = 0; x < arr.length; x++){
+      // if (arr[x].length !== 4){
+      //   new_arr.push(arr[x]);
+      // }
+      /*
+      4  【0 1 2 3】 【0 1 2】
+      * arr[0]  length长度为4  数组长度变为3
+      x=0  => x=1
+      * */
+      if(arr[x].length == 4){
+        console.log(arr.splice(x,1));
+        x--;
+      }
+    }
+    // console.log(new_arr);
+  }
+
+  filterArray(randomArr);
+  console.log(randomArr);
+</script>
+</html>

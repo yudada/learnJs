@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  let arr = [1,2,3,4];
+  function putFirst(arr,n) {
+    let val = arr.splice(n,1);
+    arr.unshift(val[0]);
+  }
+  putFirst(arr,1);
+  console.log(arr);
+</script>
+</html>

@@ -41,14 +41,16 @@
 </body>
 
 <script>
-  let randomNumber = Math.floor(Math.random()) + 1;
+  let randomNumber = Math.floor(Math.random()*100) + 1; //[0,1)
+  console.log(randomNumber);
   const guesses = document.querySelector('.guesses');
   const lastResult = document.querySelector('.lastResult');
-  const lowOrHi = document.querySelector('lowOrHi');
+  const lowOrHi = document.querySelector('.lowOrHi');
   const guessSubmit = document.querySelector('.guessSubmit');
   const guessField = document.querySelector('.guessField');
   let guessCount = 1;
   let resetButton;
+  console.log(lowOrHi);
   function checkGuess() {
 
     let userGuess = Number(guessField.value);
@@ -79,7 +81,7 @@
     guessField.value = '';
     guessField.focus();
   }
-  guessSubmit.addeventListener('click', checkGuess);
+  guessSubmit.addEventListener('click', checkGuess);
 
   function setGameOver() {
     guessField.disabled = true;
@@ -87,7 +89,7 @@
     resetButton = document.createElement('button');
     resetButton.textContent = '开始新游戏';
     document.body.appendChild(resetButton);
-    resetButton.addeventListener('click', resetGame);
+    resetButton.addEventListener('click', resetGame);
   }
 
   function resetGame() {

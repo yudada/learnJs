@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  let a=[1,2,3];
+  let b=[4,5,6];
+  function concat(arr1,arr2){
+   let new_arr = [];
+   new_arr =  arr1.splice(0);
+   for (let i = 0;i<arr2.length;i++){
+     new_arr.push(arr2[i]);
+   }
+   return new_arr;
+  }
+  let arr3 = concat(a,b);
+  console.log(arr3);
+  console.log(a);
+  console.log(b);
+</script>
+</html>

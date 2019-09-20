@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  let lines = 7;
+  function printPri(m) {
+    for (let i =1;i<=m;i++){
+      //m-i
+      for(let space=1;space<=m-i;space++){
+        document.write('&nbsp;');
+      }
+      for (let x=1;x<=2*i-1;x++){
+        document.write('*');
+      }
+      document.write('</br>');
+    }
+  };
+  printPri(lines);
+
+</script>
+</html>

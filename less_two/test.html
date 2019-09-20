@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+  /*金字塔       空格         星号
+
+           *        3=4-1        1=2*1-1
+          ***       2=4-2        3=2*2-1
+         *****      1=4-3        5=2*3-1
+        *******     0=4-4        7=2*4-1
+        第i行,空格n-i,星号2*i-1 */
+  document.write("正金字塔<br/>");
+  let n =4;
+  for(i=1;i<=n;i++){
+    for(j=1;j<=n-i;j++){
+      document.write("&nbsp;");
+    }
+    for(k=1;k<=2*i-1;k++){
+      document.write("*")
+    }
+    document.write("<br/>")
+  }
+</script>
+</html>
