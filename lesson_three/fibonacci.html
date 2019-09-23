@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+n = n-1 + n-2
+</body>
+<script>
+  function fibonacci(n) {
+    if(n==1 || n==2){
+      return n-1; // 0 1 1 2 3
+    }else{
+      return fibonacci(n-1)+fibonacci(n-2);
+    }
+  }
+
+  /*
+  *   n =3   n = n-1 + b-2
+  *fib(2)+fib(1)   0+1=1 n=3 1
+  *n=2  => 1     n=1  => 0
+  *
+  *
+  * n=5
+  * fib(4) + fib(3)     2 + 1 = 3
+  * fib(3)+ fib(2)   fib(2)+fib(1)     1+1=2
+  * fib(2)+fib(1)   0+1=1
+  * */
+
+  function speed(n) {
+    let start = performance.now()
+    fibonacci(n);
+    let end = performance.now()
+    console.log(end - start)
+  }
+  /*
+  * 4->3+2
+  * 2=>1
+  * 3->2+1    2=>1  1=>0   =>1
+  * 4=>2+1=3
+  * */
+  //console.log(speed(100));
+
+  let origin_fibonacci_array = [0,1];
+  function fibonacci_array(n) {
+    if(n==1 || n==2){
+      return n-1;
+    }else{
+        let temp = parseInt(fibonacci_array(n-1))+parseInt(fibonacci_array(n-2));
+      if(origin_fibonacci_array[n-1] === undefined) {
+        origin_fibonacci_array.push(temp);
+      }
+      return temp;
+    }
+  }
+  /*
+  * 4  4->3 2
+  *       3-> 2 1 1+0=>1  记录
+  *       2=>1
+  * =2  记录
+  *
+  * 3  3->2 1  1+0=1  记录
+  *
+  *
+  * 4+3  =>  2+1=3  记录
+  *
+  * 1 2 1 3
+  * */
+  // let start = performance.now();
+ //fibonacci_array(40);
+// // let end = performance.now();
+  // console.log(origin_fibonacci_array);
+
+
+  function fib (n) {
+    if (n < 2) {  // 1 1 2 3 5
+      return [1];
+    }
+    if (n < 3) {
+      return [1, 1];
+    }
+
+    var a = fib(n - 1);  //  3  [1,1]  n-1  n-2 + n-3
+    a.push(a[n - 2] + a[n - 3]);  // a[n-1]   n   [1,1,2]
+    return a;
+  };
+
+
+  /*
+  * 3  2 a=[1,1]
+  *a = [1,1,2]
+  * a= [1,1,2,3]
+  * */
+  let x = fib(100);
+  console.log(x);
+</script>
+</html>

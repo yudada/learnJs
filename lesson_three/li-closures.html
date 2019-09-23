@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+</body>
+<script>
+  // function showItem(i,current) {
+  //   console.log(current);
+  //   current.textContent = i;
+  // }
+  //
+  // function makeItemCallBack(i,current) {
+  //   console.log(i);
+  //   return function () {
+  //     showItem(i,current);
+  //   }
+  // }
+  li = document.querySelectorAll('ul li');
+  for (var i =0;i<li.length;i++){
+    li[i].onclick = function () {
+      this.textContent = i;
+    }
+
+    //   second  li[i].onclick = makeItemCallBack(i,li[i]);
+    //  three (function (n) {
+    //   li[i].onclick = function () {
+    //     this.textContent = n;
+    //   }
+    // })(i);
+  }
+</script>
+</html>
