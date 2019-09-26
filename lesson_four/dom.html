@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  .one{
+    background-color: lightgreen;
+  }
+  .add_new_class{
+    font-size: 16px;
+  }
+</style>
+<body>
+<div></div>
+<div class="container">
+  <a href="##">baidu</a>
+  <span class="uni">123</span>
+  <div id="asd">567</div>
+  <div name="test">2134</div>
+  <div class="uni">sadasd</div>
+</div>
+<div id="list" class="one">
+  <ul class="ul_1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+  <input  type="text" value="123" id="input_one">
+</div>
+
+
+
+<div id="click">click me</div>
+</body>
+<script>
+  let div = document.getElementsByTagName('div');  //标签名  返回的是数组
+  console.log(div);
+
+  let uni_list = document.getElementsByClassName('uni');  //类名  返回的是数组
+  console.log(uni_list[0]);
+  uni_list[0].innerText = '<h1>hello world</h1>';
+  console.log(uni_list[0].innerText);
+  //span[0].innerHTML = '<h1>hello world</h1>';
+  // span[0].textContent = 'hello world two';
+  // console.log(span[0].textContent);
+  uni_list[0].style.backgroundColor = 'red';
+  uni_list[0].style.fontSize = '2em';
+  uni_list[0].style.border = '2px solid black';
+  console.log(uni_list[0].style.backgroundColor);
+
+  console.log(uni_list[0].getAttribute('class'));
+  uni_list[0].setAttribute('class','one add_new_two_class');
+
+  let div_one = document.getElementById('asd');  //id名   返回的是一个对象
+  console.log(div_one);
+
+  let div_two = document.getElementsByName('test'); //标签里的属性 name 的值  返回数组
+  console.log(div_two);
+
+  let  div_three = document.querySelector('.uni');  //('#asd') 返回一个对象   多个符合条件的也只返回第一个
+  console.log(div_three);
+
+  let unis = document.querySelectorAll('.uni'); //返回数组
+  console.log(unis);
+
+
+  // document.documentElement.style.fontSize
+
+  // $('div')  $('.uni')   $('#asd')
+
+  let div_of_ul = document.querySelector('#list');
+  console.log(div_of_ul.children);
+  console.log(div_of_ul.parentNode);
+  //div_of_ul.setAttribute('id','list1');
+  //console.log(div_of_ul.getAttribute('id'));
+  let origin_class = div_of_ul.className;
+  div_of_ul.className = origin_class+' add_new_class';  //addClass()
+  console.log(div_of_ul.className);
+
+  div_of_ul.parentNode.style.backgroundColor = 'blue';
+
+
+  let input = document.querySelector('#input_one');
+  input.value = 'hello world';
+  console.log(input.value);
+
+  div_of_ul.innerHTML = '<span>gfdgdf</span>';
+  console.log(div_of_ul.innerHTML);
+
+
+
+  let p = document.createElement('p');
+
+  let text = document.createTextNode('hello world');
+
+  p.appendChild(text);
+
+  let container = document.querySelector('.container');
+  container.appendChild(p);
+
+  container.insertBefore(p,div_one);
+
+  container.replaceChild(p,div_one);
+
+  container.removeChild(p);
+
+
+  let click = document.querySelector('#click');
+
+  click.onclick = alertWarning;
+
+  console.log(click.onclick);
+
+  function alertWarning() {
+    alert("don't click me");
+  }
+
+
+</script>
+</html>

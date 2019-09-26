@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    *{margin:0;padding:0;}
+    body{
+      width: 2000px;
+      height: 1000px;
+    }
+    #wrap{
+      margin:300px auto;
+      width:500px;
+      height:200px;
+      border:1px solid red;
+      text-align: center;
+      overflow: scroll;
+    }
+
+    #wrap .text{
+      text-align: center;
+      line-height: 50px;
+      height: 50px;
+    }
+    #wrap .point{
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: red;
+      margin: 20px auto;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div id="wrap">
+  <p class="text">测试pageX和clientX的区别 点击红点</p>
+  <p class="point"></p>
+  <p class="mouse-position">
+    红点距离窗口左上角clientX: <span id="clientX">--</span>, clientY: <span id="clientY">--</span><br>
+    红点距离文档左上角pageX: <span id="pageX">--</span>, pageY: <span id="pageY">--</span>
+  </p>
+</div>
+</body>
+<script>
+  window.onload=function(){
+    var oDiv = document.getElementById('wrap');
+    oDiv.onmousedown = function(e){
+      e = e || window.event;
+      console.log('e.clientX:'+e.clientX+" e.clientY:"+e.clientY);
+      console.log('e.pageX:'+e.pageX+" e.pageY:"+e.pageY);
+      document.getElementById('clientX').innerText = e.clientX;
+      document.getElementById('clientY').innerText = e.clientY;
+      document.getElementById('pageX').innerText = e.pageX;
+      document.getElementById('pageY').innerText = e.pageY;
+
+    }
+  }
+</script>
