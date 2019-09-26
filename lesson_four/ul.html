@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  ul{
+    cursor: pointer;
+  }
+</style>
+<body>
+<div>
+  <ul>
+    <li id="li1">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+  </ul>
+</div>
+</body>
+<script>
+  // let lis = document.querySelectorAll('ul li');
+  // for (let i =0;i<lis.length;i++){
+  //   lis[i].onclick = function () {
+  //     alert(lis[i].textContent);
+  //   }
+  // }
+  //
+  // li1.addEventListener('click',function () {
+  //
+  // })
+
+
+  let ul = document.querySelector('ul');
+
+  ul.addEventListener('click',function (e) {
+    if(e.target != ul){
+      alert(e.target.textContent);
+    }
+    e.stopPropagation();
+  });
+</script>
+</html>
