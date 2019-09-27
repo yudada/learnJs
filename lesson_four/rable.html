@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 500px;
+  }
+
+  table td {
+    text-align: center;
+    height: 4em;
+  }
+
+  .btn {
+    padding: 1em 1.2em;
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, .5);
+    cursor: pointer;
+    border-radius: 10px;
+  }
+</style>
+<body>
+<table border="1">
+  <thead>
+  <tr>
+    <th>身高</th>
+    <th>年龄</th>
+    <th>性别</th>
+    <th>名字</th>
+    <th>删除</th>
+    <th>修改</th>
+  </tr>
+  </thead>
+  <tbody id="table-body">
+  <tr>
+    <td>170</td>
+    <td>15</td>
+    <td>male</td>
+    <td>tony</td>
+    <td><span data-type="del" class="btn">Del</span></td>
+    <td><span data-type="modify" class="btn">Modify</span></td>
+  </tr>
+  </tbody>
+</table>
+
+
+<form>
+  <div>
+    <label for="human_height">身高：</label>
+    <input id="human_height" name="height">
+  </div>
+  <div>
+    <label for="human_age">年龄：</label>
+    <input id="human_age" name="age">
+  </div>
+  <div>
+    <label for="human_sex">性别：</label>
+    <input id="human_sex" name="sex">
+  </div>
+  <div>
+    <label for="human_name">名字：</label>
+    <input id="human_name" name="userName">
+  </div>
+  <div>
+    <button type="submit" id="submit" data-type="add">Add New Line</button>
+  </div>
+</form>
+</body>
+<script>
+  let add_new = document.querySelector('#submit');
+  let height = document.querySelector('#human_height');
+  let age = document.querySelector('#human_age');
+  let sex = document.querySelector('#human_sex');
+  let name = document.querySelector('#human_name');
+  let modify_obj = {};
+  add_new.addEventListener('click', function (e) {
+    e.preventDefault();
+    let btn_type = add_new.getAttribute('data-type');
+    if (height.value == '' || height.value == undefined) {
+      alert("用户身高不能为空");
+      height.focus();
+      return false;
+    }
+
+    if (age.value == '' || age.value == undefined) {
+      alert("用户年龄不能为空");
+      age.focus();
+      return false;
+    }
+
+    if (sex.value == '' || sex.value == undefined) {
+      alert("用户性别不能为空");
+      sex.focus();
+      return false;
+    }
+
+    if (name.value == '' || name.value == undefined) {
+      alert("用户姓名不能为空");
+      name.focus();
+      return false;
+    }
+    if (btn_type == 'add') {
+      let new_tr = document.createElement('tr');
+
+      let height_td = document.createElement('td');
+      let height_text = document.createTextNode(height.value);
+      height_td.appendChild(height_text);
+      new_tr.appendChild(height_td);
+
+      let age_td = document.createElement('td');
+      let age_text = document.createTextNode(age.value);
+      age_td.appendChild(age_text);
+      new_tr.appendChild(age_td);
+
+      let sex_td = document.createElement('td');
+      let sex_text = document.createTextNode(sex.value);
+      sex_td.appendChild(sex_text);
+      new_tr.appendChild(sex_td);
+
+      let name_td = document.createElement('td');
+      let name_text = document.createTextNode(name.value);
+      name_td.appendChild(name_text);
+      new_tr.appendChild(name_td);
+
+      let del_td = document.createElement('td');
+      del_td.innerHTML = '<span data-type="del" class="btn">Del</span>';
+      new_tr.appendChild(del_td);
+
+      let modify_td = document.createElement('td');
+      modify_td.innerHTML = '<span data-type="modify" class="btn">Modify</span>';
+      new_tr.appendChild(modify_td);
+
+      let table_body = document.querySelector('tbody');
+      table_body.appendChild(new_tr);
+    }
+
+    if(btn_type == 'modify'){
+      let obj = modify_obj.children;
+      obj[0].textContent = height.value;
+      obj[1].textContent = age.value;
+      obj[2].textContent = sex.value;
+      obj[3].textContent = name.value;
+
+      reset();
+    }
+
+  })
+
+  let table_body = document.querySelector('#table-body');
+  table_body.addEventListener('click', function (e) {
+    e.stopPropagation();
+    let type = e.target.getAttribute('data-type');
+    if (type && type == 'del') {
+      table_body.removeChild(e.target.parentNode.parentNode);
+    }
+
+    if (type && type == 'modify') {
+      let parent_tr = e.target.parentNode.parentNode;
+      let tds = parent_tr.children;
+      let origin_height = tds[0].textContent;
+      let origin_age = tds[1].textContent;
+      let origin_sex = tds[2].textContent;
+      let origin_name = tds[3].textContent;
+
+      height.value = origin_height;
+      age.value = origin_age;
+      sex.value = origin_sex;
+      name.value = origin_name;
+
+      add_new.textContent = 'Confirm Modify';
+      add_new.setAttribute('data-type','modify');
+      modify_obj = e.target.parentNode.parentNode;
+
+    }
+  })
+
+  function reset() {
+    height.value = '';
+    age.value = '';
+    sex.value = '';
+    name.value = '';
+    add_new.setAttribute('data-type','add');
+    add_new.textContent = 'Add New Line';
+  }
+</script>
+</html>
