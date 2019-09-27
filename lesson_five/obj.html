@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  let person = {
+    name:{
+      first_name:'haha',
+      last_name:'hehe'
+    },
+    age:24,
+    gender:'male',
+    interests:['music','painting'],
+    info:function () {
+      alert('userName:'+this.name.first_name+' userAge:'+this.age+' userGender:'+this.gender+' userInterest:'+this.interests[0]+' , '+this.interests[1]);
+    },
+    greeting:function () {
+      alert('你好，我是'+this.name.last_name+',很高兴认识你');
+    }
+  };
+  console.log(person['name']['first_name']);//person.name  .age   .info();  person.name[1]
+</script>
+</html>
