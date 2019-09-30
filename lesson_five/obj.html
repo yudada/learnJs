@@ -8,7 +8,38 @@
 
 </body>
 <script>
-  let person = {
+
+ function human(height,weight,skinColor){
+   this.height = height;
+   this.weight = weight;
+   this.skinColor = skinColor;
+   this.say = function () {
+     alert("my height is"+this.height+" and my weight is"+this.weight);
+   }
+   this.racial = function () {
+     alert("my skin color is"+this.skinColor+',so my racial is xxxx');
+   }
+ }
+
+ function house(width,height,long){
+   this.height = height;
+   this.width=width;
+   this.long = long;
+   this.volume = function () {
+     alert("house volume is"+parseInt(this.width)*parseInt(this.height)*parseInt(this.long)+ 'Cubic metres');
+   }
+ }
+ let house1 = new house(5,2,5);
+ let house2 = new house(6,6,6);
+
+ let person_one = new human(170,170,'white');
+ let person_two = new human(180,180,'yellow');
+ console.log(person_one);
+ console.log(person_two);
+
+
+
+  let person = {  //let xxx = {}   let xxx= new Object();
     name:{
       first_name:'haha',
       last_name:'hehe'
@@ -16,13 +47,47 @@
     age:24,
     gender:'male',
     interests:['music','painting'],
-    info:function () {
-      alert('userName:'+this.name.first_name+' userAge:'+this.age+' userGender:'+this.gender+' userInterest:'+this.interests[0]+' , '+this.interests[1]);
+    info:function (argu1,argu2) {
+      console.log(argu1+':'+argu2+'    '+this.age);
     },
     greeting:function () {
-      alert('你好，我是'+this.name.last_name+',很高兴认识你');
+      console.log(this);
+      let that = this;
+      setTimeout(function (){
+        console.log(this);
+        console.log('你好，我是'+that.name.last_name+',很高兴认识你')
+      },1000);
     }
   };
+  let human_class = {
+    age:25
+  }
+  person.info('haha','hehe');
+  person.info.call(human_class,'heihei','zzCzxCZ'); // 改变this指向哪里，argu1，argu2
+ person.info.apply(human_class,['heihei','zzCzxCZ']);//改变this指向哪里，[argu1，argu2]
   console.log(person['name']['first_name']);//person.name  .age   .info();  person.name[1]
+
+person.name.of_somebody = person;
+  function test() {
+    console.log('haha'+performance.now());
+  }
+
+  let x = setTimeout(test,1000);
+  clearTimeout(x);
+  setTimeout(function () {
+    console.log('2s later'+performance.now());
+  },2000);
+  let y = setInterval(function () {
+    console.log("always run");
+  },1000);
+  setTimeout(function () {
+    clearInterval(y);
+  },5000);
+
+
+  // let x = {
+  //
+  // };
+  // let y = new Object();
 </script>
 </html>
