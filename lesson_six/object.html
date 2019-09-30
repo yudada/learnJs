@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  let names_array = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  let homes_array = ['xiamen','putian','zhangzhou','quanzhou','sanming','longyan','nanping','xian'];
+  function student(name,age,height,home) {
+    this.name = name;
+    this.age = age;
+    this.height = height;
+    this.home = home;
+    this.getStudentAge = function () {
+      if(this.age > 20){
+        return true;
+      }else{
+        return false;
+      }
+    },
+      this.getStudentHeight = function () {
+        if(this.height > 170){
+          return true;
+        }else{
+          return false;
+        }
+      },
+    this.getHeight = function () {
+      return this.height;
+    }
+  };
+student.prototype.filterAge = function(){
+  return this.age > 20;
+};
+
+  let student_object_array = [];
+  for (let i = 0;i < 14;i++){
+    student_object_array.push(new student((names_array[(Math.floor(Math.random()*26))]+names_array[(Math.floor(Math.random()*26))]+names_array[(Math.floor(Math.random()*26))]),Math.floor(Math.random()*5+18),Math.floor(Math.random()*100+100),homes_array[Math.floor(Math.random()*8)]))
+  }
+  let gt20Array = [];
+  let gt170Array = [];
+  let sortByHome = [];
+  for (let i = 0;i < student_object_array.length;i++){
+    if(student_object_array[i].getStudentAge()){
+      gt20Array.push(student_object_array[i]);
+    }
+    if(student_object_array[i].getStudentHeight()){
+      gt170Array.push(student_object_array[i]);
+    }
+    for (let j = i+1;j < student_object_array.length;j++){
+      if(student_object_array[i].height > student_object_array[j].height){
+        let temp = student_object_array[i];
+        student_object_array[i] = student_object_array[j];
+        student_object_array[j] = temp;
+      }
+    }
+    if(sortByHome.hasOwnProperty(student_object_array[i].home)){
+      sortByHome[student_object_array[i].home].push(student_object_array[i]);
+    }else{
+      sortByHome[student_object_array[i].home] = new Array();
+      sortByHome[student_object_array[i].home].push(student_object_array[i]);
+    }
+  }
+
+  //arr   arr['longyan'] = [object,];
+
+  console.log(sortByHome);
+
+  // let new_arr = student_object_array.filter(function (v) {
+  //   return v.age > 20 ;
+  // });
+  // let new_arr_1 = student_object_array.filter(function (v) {
+  //   return v.height > 170 ;
+  // });
+  // let new_arr_2 = student_object_array.sort(function (a,b) {
+  //     let aHeight = a.height ;
+  //     let bHeight = b.height;
+  //     return bHeight-aHeight;
+  // })
+  // console.log(new_arr_2);
+
+
+  // console.log(student_object_array);
+  // console.log(gt20Array);
+  // console.log(gt170Array);
+</script>
+</html>
