@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header>
+  <h1>Different</h1>
+</header>
+<div>
+  <label for="select_somthing">请选择:</label>
+  <select id="select_somthing">
+    <option value="verse1">Verse 1</option>
+    <option value="verse2">Verse 2</option>
+    <option value="verse3">Verse 3</option>
+    <option value="verse4">Verse 4</option>
+  </select>
+    <pre>
+
+    </pre>
+</div>
+</body>
+<script>
+  let select_obj = document.querySelector('#select_somthing');
+  let display = document.querySelector('pre');
+
+  select_obj.onchange = function () {
+    let verse = select_obj.options[select_obj.selectedIndex].value;
+    console.log(verse);
+    updateDisplay(verse);
+  }
+
+  function updateDisplay(verse) {
+    let url = verse+'.txt';
+    // let xhr = new XMLHttpRequest();
+    // xhr.setRequestHeader('application/x-form-www-urlencoded');
+    // xhr.open('POST',url,true); //www.baidu.com?x=5&c=5
+    // let string = 'x='+5+'&c='+6;
+    //
+    // xhr.send(string);
+    // xhr.responseType = 'text';
+    // xhr.onreadystatechange = function () {
+    //   if(xhr.readyState == 4 && xhr.status == '200'){
+    //     console.log(xhr.responseText);
+    //     display.textContent = xhr.responseText;
+    //   }
+    // }
+    //
+    // xhr.onload = function () {
+    //   if(xhr.status == '200'){
+    //     console.log(xhr.responseText);
+    //     display.textContent = xhr.responseText;
+    //   }
+    // }
+    // console.log(fetch(url));
+    let promise = fetch(url);
+    promise.then(function (response) {
+      return response.text();
+    }).then(function (text) {
+      display.textContent = text;
+    });
+  }
+  updateDisplay('verse1');
+</script>
+</html>
