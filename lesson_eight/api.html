@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  #result{
+    width: 80%;
+    border: 2px solid black;
+    margin-top: 2em;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+  }
+  span{
+    font-size: 3em;
+    color: red;
+  }
+  section{
+    display: flex;
+    flex-flow: column;
+  }
+  section span {
+    font-size: 1em;
+  }
+</style>
+<body>
+<div>
+  <button id="confirm">获取最新新闻</button>
+</div>
+<div id="result">
+<!--  <section>-->
+
+<!--    <p>男生摆蜡烛表白被保安一脚踢开：感情好好的表啥白</p>-->
+<!--    <span>2019-10-15 10:00:35</span>-->
+<!--    <a href="https://news.163.com/19/1015/09/ERH603RN0001899O.html">-->
+<!--      <img src="http://cms-bucket.ws.126.net/2019/10/15/2c1ebf3ebb2c4719b7b4d4bb8bbe7882.png?imageView&thumbnail=140y88&quality=85">-->
+<!--    </a>-->
+
+<!--  </section>-->
+</div>
+</body>
+<script>
+  let confirm_btn = document.querySelector('#confirm');
+  let result = document.querySelector('#result');
+  let url = 'https://api.apiopen.top/getWangYiNews';
+    confirm_btn.addEventListener('click',function (e) {
+    e.preventDefault();
+    while(result.children.length){
+      result.removeChild(result.firstChild);
+    }
+        let params = 'page=1&count=5';
+        let xhr = new XMLHttpRequest();
+
+        xhr.open('POST',url);
+      xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+        xhr.send(params);
+        xhr.responseType = 'json';
+        xhr.onreadystatechange = function () {
+          if(xhr.readyState == 4 && xhr.status == '200'){
+            console.log(xhr.response);
+            if(xhr.response.code == '200'){
+              for(let i = 0;i<xhr.response.result.length;i++){
+                let section = document.createElement('section');
+                let p = document.createElement('p');
+                let span = document.createElement('span');
+                let a = document.createElement('a');
+                let img = document.createElement('img');
+                result.appendChild(section);
+                p.textContent = xhr.response.result[i].title;
+                section.appendChild(p);
+                span.textContent = xhr.response.result[i].passtime;
+                section.appendChild(span);
+                img.src = xhr.response.result[i].image;
+                a.appendChild(img);
+                a.href = xhr.response.result[i].path;
+                section.appendChild(a);
+              }
+            }else{
+              alert('请求数据失败');
+            }
+          }
+        }
+  })
+</script>
+</html>

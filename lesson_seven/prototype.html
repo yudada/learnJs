@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  var  makeObj = function(x,y) {
+    this.x = x;
+    this.y = y;
+  }//Function
+
+  makeObj.prototype.a = function(){
+    console.log(this);
+  }
+
+  //
+  // let newObj = new makeObj(1,2);
+  //
+  // let newObjTwo = new makeObj(3,4);
+  //
+  // console.log(newObj.__proto__.constructor);
+  // console.log(newObjTwo);
+  // console.log(makeObj.prototype.constructor);
+  // newObj.a();
+  // newObjTwo.a();
+  //makeObj.prototype  === newObj.__proto__
+
+
+  // function doSomething(){}
+  // console.log( doSomething.prototype );
+  // var doSomething = function(){};
+  // console.log( doSomething.prototype );
+
+  // function doSomething(){}
+  // doSomething.prototype.foo = "bar";
+  // var doSomeInstancing = new doSomething();
+  // doSomeInstancing.prop = "some value";
+  //
+  // console.log(doSomething.prototype.foo);
+  // doSomeInstancing.prop   "some value"
+  // doSomeInstancing.foo    "bar"
+  // doSomething.prop         "undefined"
+  // doSomething.foo         "undefined"
+  // doSomething.prototype.prop   "undefined"
+  // doSomething.prototype.foo    "bar"
+
+
+  function person(first,last,age,gender,interests) {
+
+  }
+var person1 = new person('ha','ha',23,'male','none');
+
+  console.log(person1);
+
+</script>
+</html>

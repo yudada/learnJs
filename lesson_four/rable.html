@@ -79,6 +79,7 @@
   let name = document.querySelector('#human_name');
   let modify_obj = {};
   add_new.addEventListener('click', function (e) {
+    console.log(this);
     e.preventDefault();
     let btn_type = add_new.getAttribute('data-type');
     if (height.value == '' || height.value == undefined) {
@@ -150,9 +151,12 @@
     }
 
   })
-
+console.log(this);
+  // window.location.href = '';
+  // window.location.reload();
   let table_body = document.querySelector('#table-body');
   table_body.addEventListener('click', function (e) {
+    console.log(this);
     e.stopPropagation();
     let type = e.target.getAttribute('data-type');
     if (type && type == 'del') {
@@ -180,6 +184,7 @@
   })
 
   function reset() {
+    console.log(this);
     height.value = '';
     age.value = '';
     sex.value = '';
@@ -187,5 +192,11 @@
     add_new.setAttribute('data-type','add');
     add_new.textContent = 'Add New Line';
   }
+
+ reset();
+
+
+
+
 </script>
 </html>

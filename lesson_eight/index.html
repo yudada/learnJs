@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单购物列表</title>
+<!--  <link href="can-style.css" rel="stylesheet">-->
+</head>
+<style>
+  html,body{
+    margin: 0;
+    padding: 0;
+  }
+  html{
+    font-family: 'Raleway', sans-serif;
+    background-color: greenyellow;
+    font-size: 10px;
+  }
+  body{
+    width: 800px;
+    margin: 0 auto;
+  }
+  header{
+    border: 5px solid black;
+    border-bottom: 0;
+  }
+  header,aside,main{
+    padding: 2em;
+  }
+  h1{
+    font-size: 5em;
+    background: url(icons/bean_can.png) no-repeat 20% center, url(icons/bean_can.png) no-repeat 80% center;
+    background-size: 48px 48px;
+  }
+  h1,h2{
+    font-family: 'Cherry Swash', cursive;
+    margin: 0;
+    text-align: center;
+  }
+  body > div {
+    border: 5px solid black;
+    display: flex;
+  }
+  aside{
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    flex: 3;
+    border-right: 5px solid black;
+  }
+  aside div{
+    margin-bottom: 20px;
+  }
+  label{
+    margin-bottom: 5px;
+  }
+  select{
+    width: 100%;
+    display: block;
+    font-size: 1.5em;
+  }
+  input{
+    background: black;
+    box-shadow: inset 1px 1px 1px white;
+    color: yellow;
+    border: none;
+    padding: 5px;
+    width: 201.5px;
+    display: block;
+    font-size: 1.5em;
+  }
+  button{
+    width: 100%;
+    font-size: 1.5em;
+    background: black;
+    color: yellow;
+    padding: 5px 0;
+    border: none;
+    border-radius: 10px;
+    box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px #ccc;
+  }
+  main{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    flex: 7;
+  }
+
+  element.style {
+  }
+  .vegetables {
+    background: black url(icons/vegetable.png) no-repeat 2px 2px;
+    background-size: 24px 24px;
+  }
+  section {
+    width: 45%;
+    margin: 5px;
+    background-color: black;
+    position: relative;
+    height: 215px;
+  }
+  section img {
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0px;
+  }
+  section p {
+    color: yellow;
+    background: black;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 2px 2px 1px yellow;
+    position: absolute;
+    right: 10px;
+    bottom: -6px;
+    z-index: 2000;
+  }
+  .meat {
+    background: black url(icons/meat.png) no-repeat 2px 2px;
+    background-size: 24px 24px;
+  }
+
+  .soup {
+    background: black url(icons/soup.png) no-repeat 2px 2px;
+    background-size: 24px 24px;
+  }
+  h2 {
+    font-size: 2rem;
+    color: yellow;
+    text-align: right;
+    width: 160px;
+    position: absolute;
+    right: 4%;
+    z-index: 3000;
+    text-shadow: 2px 2px 1px black;
+    line-height: 2rem;
+    padding-top: 0.3rem;
+  }
+</style>
+<body>
+<header>
+  <h1>商城</h1>
+</header>
+<div>
+  <aside>
+    <form>
+      <div>
+        <label for="category">选择种类：</label>
+        <select id="category">
+          <option selected>所有</option>
+          <option >蔬菜</option>
+          <option >肉类</option>
+          <option >汤类</option>
+        </select>
+      </div>
+      <div>
+        <label for="search">输入产品搜索:</label>
+        <input type="text" id="search" placeholder="例：大豆">
+      </div>
+      <div>
+        <button>查询结果</button>
+      </div>
+    </form>
+  </aside>
+  <main></main>
+</div>
+</body>
+<script>
+let url = 'products.json';
+var main = document.querySelector('main');
+fetch(url).then(function (response) {
+  return response.json();
+}).then(function (json) {
+  for (let i = 0;i<json.length;i++){
+
+    var url = 'images/' + json[i].image;
+    fetch(url).then(function(response) {
+      return response.blob();
+    }).then(function(blob) {
+      var objectURL = URL.createObjectURL(blob);
+      var section = document.createElement('section');
+      var heading = document.createElement('h2');
+      var para = document.createElement('p');
+      var image = document.createElement('img');
+
+      section.setAttribute('class', json[i].type);
+
+      heading.textContent = json[i].name.replace(json[i].name.charAt(0), json[i].name.charAt(0).toUpperCase());
+
+      para.textContent = '$' + json[i].price.toFixed(2);
+
+      image.src = objectURL;
+      image.alt = json[i].name;
+
+      main.appendChild(section);
+      section.appendChild(heading);
+      section.appendChild(para);
+      section.appendChild(image);
+    });
+  }
+});
+</script>
+</html>

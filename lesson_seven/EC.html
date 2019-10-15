@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="click">click me</button>
+</body>
+<script>
+//a  undefined
+//function foo()
+//function outerfunc()
+ /* var a = "global var";
+
+  function foo(){
+    console.log(a);
+  }
+
+  function outerFunc(){
+    var b = "var in outerFunc";
+    console.log(b);
+
+    function innerFunc(){
+      var c = "var in innerFunc";
+      console.log(c);
+      foo();
+    }
+
+    innerFunc();
+  }
+  outerFunc();
+(function(){
+  console.log(bar);
+  console.log(baz);
+
+  var bar = 20;
+
+  function baz(){
+    console.log("baz");
+  }
+
+})()
+
+(function(){
+  //console.log(bar);
+  console.log(baz);
+
+  bar = 20;
+  console.log(window.bar);
+  console.log(bar);
+
+  function baz(){
+    console.log("baz");
+  }
+
+})()
+
+
+var context = "global";
+
+var obj = {
+  context: "object",
+  method: function () {
+    console.log(this + ":" +this.context); // obj  object
+
+    function f() {
+      var context = "function";
+      console.log(this + ":" +this.context); // window  global
+    };
+    f();
+
+    (function(){
+      var context = "function";
+      console.log(this + ":" +this.context); // window  global
+    })();
+  },
+  method2:function () {
+    console.log(this.context);
+  }
+};
+
+var obj2={
+  context:'obj2context',
+  method2:function () {
+    console.log(this.context);
+  }
+};
+
+//obj.method();
+
+// obj.method.call(obj2,arg1,arg2,arg3);
+// obj.method.apply(obj2,[arg1,arg2,arg3]);
+// obj.method.bind(obj2,arg1,arg2,arg3);
+  var temp = obj.method2.bind(obj2);
+  temp();
+  temp.call(obj);*/
+
+
+ // let click = document.querySelector('#click');
+ //
+ // click.addEventListener('click',function () {
+ //   console.log(this);
+ //   let that = this;
+ //
+ // })
+ //
+ //  function clickone(e) {
+ //    alert(111);
+ //    console.log(e);
+ //  }
+
+</script>
+</html>
