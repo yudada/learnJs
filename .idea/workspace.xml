@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75a46b65-8bf2-4d60-b053-962ab37c591e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/lesson_four/rable.html" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_four/rable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_three/fibonacci.html" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_three/fibonacci.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_three/init.html" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_three/init.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_three/li-closures.html" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_three/li-closures.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_three/makeAddr.html" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_three/makeAddr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_eight/ajax.html" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_eight/ajax.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_eight/api.html" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_eight/api.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lesson_eight/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="20" column="3" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+            <state relative-caret-position="700">
+              <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -31,8 +29,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lesson_eight/api.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="60" column="57" lean-forward="true" selection-start-line="60" selection-start-column="57" selection-end-line="60" selection-end-column="57" />
+            <state relative-caret-position="164">
+              <caret line="214" column="43" selection-start-line="214" selection-start-column="43" selection-end-line="214" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lesson_eight/ajax.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="458">
+              <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
             </state>
           </provider>
         </entry>
@@ -108,16 +115,16 @@
         <option value="$PROJECT_DIR$/lesson_eight/verse2.txt" />
         <option value="$PROJECT_DIR$/lesson_eight/verse3.txt" />
         <option value="$PROJECT_DIR$/lesson_eight/verse4.txt" />
-        <option value="$PROJECT_DIR$/lesson_eight/ajax.html" />
         <option value="D:/Documents/Downloads/learning-area-master/learning-area-master/javascript/apis/fetching-data/can-store/can-script.js" />
         <option value="$PROJECT_DIR$/lesson_eight/index.html" />
+        <option value="$PROJECT_DIR$/lesson_eight/ajax.html" />
         <option value="$PROJECT_DIR$/lesson_eight/api.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-64" />
-    <option name="y" value="195" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
@@ -153,7 +160,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lesson_eight" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -242,12 +249,14 @@
       <workItem from="1571044419583" duration="1104000" />
       <workItem from="1571046852963" duration="442000" />
       <workItem from="1571074752800" duration="3142000" />
-      <workItem from="1571102430471" duration="5603000" />
+      <workItem from="1571102430471" duration="7433000" />
+      <workItem from="1571121719556" duration="8000" />
+      <workItem from="1571189652349" duration="5692000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147901000" />
+    <option name="totallyTimeSpent" value="155431000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -265,7 +274,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32872504" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.63190186" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.6313364" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -550,13 +559,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lesson_eight/ajax.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="65" column="7" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ajax/ajax.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
@@ -611,15 +613,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lesson_eight/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="20" column="3" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+        <state relative-caret-position="700">
+          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lesson_eight/ajax.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lesson_eight/api.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="60" column="57" lean-forward="true" selection-start-line="60" selection-start-column="57" selection-end-line="60" selection-end-column="57" />
+        <state relative-caret-position="164">
+          <caret line="214" column="43" selection-start-line="214" selection-start-column="43" selection-end-line="214" selection-end-column="43" />
         </state>
       </provider>
     </entry>
