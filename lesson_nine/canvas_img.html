@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  html,body{
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<body>
+<canvas id="myCanvas"></canvas>
+</body>
+<script>
+  let canvas = document.querySelector('#myCanvas');
+  let width = canvas.width =  window.innerWidth;
+  let height = canvas.height =  window.innerHeight;
+  let ctx = canvas.getContext('2d');
+  ctx.fillStyle = 'rgb(0,0,0)';
+  ctx.fillRect(0,0,width,height);
+  ctx.save();
+  ctx.translate(width/2,height/2);
+  ctx.fillStyle = '#4add31';
+  ctx.fillRect(0,0,100,200);
+  // let img = new Image();
+  // img.src = 'marker.jpg';
+  //
+  // img.onload = function () {
+  //   ctx.drawImage(img,100,100,300,300,0,0,300,300);
+  //   //100  100    针对于原图 进行裁切  x,y
+  //   //300  300    针对于原图 进行裁切  裁切的大小  width  height
+  //   // 0 0        针对于画布  在画布上  裁切后的图像  左上角的坐标 x,y
+  //   //300  300    针对于画布  在画布上  裁切的后的图像大小  width  height
+  // }
+  ctx.restore();
+  ctx.fillStyle = '#4add31';
+  ctx.fillRect(0,0,100,200);
+</script>
+</html>
