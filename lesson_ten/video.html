@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  html,body{
+    margin: 0;
+    padding: 0;
+  }
+  video{
+    width: 100%;
+    max-height: 100%;
+  }
+  .player{
+    position: relative;
+    width: 600px;
+    height: 450px;
+  }
+  .controls{
+    background: #666666;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    cursor: pointer;
+  }
+  .progress{
+    position: absolute;
+    height: 5px;
+    background: greenyellow;
+  }
+  .btns{
+    width: 100%;
+    height: 50px;
+    margin-top: 5px;
+    display: flex;
+  }
+  .play{
+    background: url("play.svg");
+    background-size: 45px 45px;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex: 1;
+  }
+  .stop{
+    flex: 1;
+    background: url("stop.svg");
+    background-size: 45px 45px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .timer{
+    flex: 4;
+    text-align: center;
+    line-height: 50px;
+    vertical-align: middle;
+    color: white;
+  }
+  .web_full{
+    background: url("web_full.svg");
+    background-size: 45px 45px;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex: 1;
+  }
+  .full_screen{
+    background: url("full.svg");
+    background-size: 45px 45px;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex: 1;
+  }
+</style>
+<body>
+<div class="player">
+<video id="video1">
+  <source src="../sources/rabbit320.webm" type="video/webm">
+  <source src="../sources/rabbit320.mp4" type="video/mp4">
+</video>
+<div class="controls">
+  <div class="progress"></div>
+  <div class="btns">
+    <span class="play"></span>
+    <span class="stop"></span>
+    <div class="timer"><span id="current">00:00</span>/<span id="total">00:00</span></div>
+    <span class="web_full"></span>
+    <span class="full_screen"></span>
+  </div>
+</div>
+</div>
+</body>
+<script>
+  let play = document.querySelector('.play');
+  let stop = document.querySelector('.stop');
+  let timer = document.querySelector('.timer');
+  let web_full = document.querySelector('.web_full');
+  let full_screen = document.querySelector('.full_screen');
+  let media = document.querySelector('video');
+  let current = document.querySelector('#current');
+  let total = document.querySelector('#total');
+  let progress = document.querySelector('.progress');
+
+  play.addEventListener('click',function () {
+    if(media.paused){  //paused  返回true/false
+      media.play(); //使用视频或者音频的元素对象  调用 play()方法  播放
+    }
+  });
+
+  stop.addEventListener('click',function () {
+    if(!media.paused){
+      media.pause(); //使用视频或者音频的元素对象  调用 play()方法  暂停
+    }
+  })
+let player = document.querySelector('.player');
+  media.addEventListener('timeupdate',function () {
+    let minute = Math.floor(media.currentTime/60);
+    let seconds = Math.floor(media.currentTime - minute*60);
+    if(minute < 10){
+      minute = '0'+minute;
+    }
+
+    if(seconds < 10){
+      seconds = '0'+seconds;
+    }
+
+    let time = minute+':'+seconds;
+    current.textContent = time;
+
+    let percent = media.currentTime/media.duration;
+    let progressW = parseInt(player.clientWidth)*percent;
+    progress.setAttribute('style','width:'+progressW+'px;');
+  })
+
+
+  /**
+   * loadedmeatdata
+   * 音视频文件 加载完成 触发此事件
+   * */
+  media.addEventListener('loadedmetadata',function () {
+    let minute = Math.floor(media.duration/60);
+    let seconds = Math.floor(media.duration - minute*60);
+    if(minute < 10){
+      minute = '0'+minute;
+    }
+
+    if(seconds < 10){
+      seconds = '0'+seconds;
+    }
+
+    let time = minute+':'+seconds;
+    total.textContent = time;
+  })
+
+  full_screen.addEventListener('click',function () {
+    media.requestFullscreen();
+  })
+
+  web_full.addEventListener('click',function () {
+    let width = document.documentElement.clientWidth;
+    let height = document.documentElement.clientHeight;
+    player.setAttribute('style','width:'+width+'px;height:'+height+'px;');
+  });
+
+  window.addEventListener('resize',function () {
+    let width = document.documentElement.clientWidth;
+    let height = document.documentElement.clientHeight;
+    player.setAttribute('style','width:'+width+'px;height:'+height+'px;');
+  })
+
+</script>
+</html>
