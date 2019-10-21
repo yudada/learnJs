@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  #result{
+    width: 80%;
+    border: 2px solid black;
+    margin-top: 2em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-items: center;
+    align-items: center;
+  }
+  span{
+    font-size: 3em;
+    color: red;
+  }
+  section{
+    display: flex;
+    flex-flow: column;
+  }
+  section span {
+    font-size: 1em;
+  }
+</style>
+<body>
+<div>
+  <button id="confirm">获取最新新闻</button>
+</div>
+<div id="result">
+<!--  <section>-->
+
+<!--    <p>男生摆蜡烛表白被保安一脚踢开：感情好好的表啥白</p>-->
+<!--    <span>2019-10-15 10:00:35</span>-->
+<!--    <a href="https://news.163.com/19/1015/09/ERH603RN0001899O.html">-->
+<!--      <img src="http://cms-bucket.ws.126.net/2019/10/15/2c1ebf3ebb2c4719b7b4d4bb8bbe7882.png?imageView&thumbnail=140y88&quality=85">-->
+<!--    </a>-->
+
+<!--  </section>-->
+</div>
+</body>
+<script>
+  let confirm_btn = document.querySelector('#confirm');
+  let result = document.querySelector('#result');
+  let url = 'https://api.apiopen.top/getWangYiNews';
+    confirm_btn.addEventListener('click',function (e) {
+    e.preventDefault();
+    while(result.children.length){
+      result.removeChild(result.firstChild);
+    }
+    let param = {'page':1,'count':5};
+
+    let json_promise = ajax(url,param,'POST');
+      json_promise.then(function (json) {
+        console.log(json);
+   });
+
+   /* let options = {
+      method:'POST',
+      headers:{
+        'Accept':'application/json',
+        'Content-type':'application/json'
+      },
+      body:JSON.stringify(param),
+    };
+
+    fetch(url,options).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      if(json.code == 200) {
+        for (let i = 0; i < json.result.length; i++) {
+          let section = document.createElement('section');
+          let p = document.createElement('p');
+          let span = document.createElement('span');
+          let a = document.createElement('a');
+          let img = document.createElement('img');
+          result.appendChild(section);
+          p.textContent = json.result[i].title;
+          section.appendChild(p);
+          span.textContent = json.result[i].passtime;
+          section.appendChild(span);
+          img.src = json.result[i].image;
+          a.appendChild(img);
+          a.href = json.result[i].path;
+          section.appendChild(a);
+        }
+      }
+    })
+      */
+
+       /* let params = 'page=1&count=5';
+        let xhr = new XMLHttpRequest();
+
+        xhr.open('POST',url);
+      xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+        xhr.send(params);
+        xhr.responseType = 'json';
+        xhr.onreadystatechange = function () {
+          if(xhr.readyState == 4 && xhr.status == '200'){
+            console.log(xhr.response);
+            if(xhr.response.code == '200'){
+              for(let i = 0;i<xhr.response.result.length;i++){
+                let section = document.createElement('section');
+                let p = document.createElement('p');
+                let span = document.createElement('span');
+                let a = document.createElement('a');
+                let img = document.createElement('img');
+                result.appendChild(section);
+                p.textContent = xhr.response.result[i].title;
+                section.appendChild(p);
+                span.textContent = xhr.response.result[i].passtime;
+                section.appendChild(span);
+                img.src = xhr.response.result[i].image;
+                a.appendChild(img);
+                a.href = xhr.response.result[i].path;
+                section.appendChild(a);
+              }
+            }else{
+              alert('请求数据失败');
+            }
+          }
+        }*/
+  })
+
+
+   async function ajax(url = '', data = {}, type = 'GET', method = 'fetch') {
+    type = type.toUpperCase();
+    //url = baseUrl + url;
+     url = url;
+
+    if (type == 'GET') {
+      let dataStr = ''; //数据拼接字符串
+      Object.keys(data).forEach(key => {
+        dataStr += key + '=' + data[key] + '&';
+      })
+
+      if (dataStr !== '') {
+        dataStr = dataStr.substr(0, dataStr.lastIndexOf('&'));
+        url = url + '?' + dataStr;
+      }
+    }
+
+    if (window.fetch && method == 'fetch') {
+      let requestConfig = {
+       // credentials: 'include',//为了在当前域名内自动发送 cookie ， 必须提供这个选项
+        method: type,
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+       // mode: "cors",//请求的模式
+        //  cache: "force-cache"
+      }
+
+      if (type == 'POST') {
+        Object.defineProperty(requestConfig, 'body', {
+          value: JSON.stringify(data)
+        })
+      }
+
+      try {
+        const response = await fetch(url, requestConfig);
+        const responseJson = await response.json();
+        return responseJson;
+      } catch (error) {
+        throw new Error(error)
+      }
+    } else {
+      return new Promise((resolve, reject) => {
+        let requestObj;
+        if (window.XMLHttpRequest) {
+          requestObj = new XMLHttpRequest();
+        } else {
+          requestObj = new ActiveXObject;
+        }
+
+        let sendData = '';
+        if (type == 'POST') {
+          sendData = JSON.stringify(data);
+        }
+
+        requestObj.open(type, url, true);
+        requestObj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        requestObj.send(sendData);
+
+        requestObj.onreadystatechange = () => {
+          if (requestObj.readyState == 4) {
+            if (requestObj.status == 200) {
+              let obj = requestObj.response
+              if (typeof obj !== 'object') {
+                obj = JSON.parse(obj);
+              }
+              resolve(obj)
+            } else {
+              reject(requestObj)
+            }
+          }
+        }
+      })
+    }
+  }
+</script>
+<script>
+  let script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = 'http://localhost:9090?callback=handleCallback';
+  document.documentElement.appendChild(script);
+  function handleCallback(res) {
+    console.log(JSON.stringify(res));
+  }
+  // let xhr = new XMLHttpRequest();
+  // let l_url = 'http://localhost:9090?callback=handleCallback';
+  //xhr.withCredentials = true;
+  // xhr.open('GET',l_url);
+  // xhr.send();
+  // xhr.onreadystatechange = function () {
+  //   if(xhr.readyState == 4 && xhr.status==200){
+  //     console.log(xhr.response);
+  //   }
+  // }
+  /**
+   * callbakck   func handleCallback
+   * handleCallback({json object});
+   * handleCallback(param);
+   * */
+</script>
+</html>

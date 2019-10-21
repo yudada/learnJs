@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  html,body{
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<body>
+<canvas id="myCanvas"></canvas>
+</body>
+<script>
+  let canvas = document.querySelector('#myCanvas');
+  let ctx = canvas.getContext('2d');
+
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+  let triHeight = Math.floor(Math.sqrt(100*100-50*50));
+
+
+  ctx.fillStyle = 'rgb(0,0,0)';
+  ctx.fillRect(0,0,width,height);
+  ctx.save();
+
+  ctx.strokeStyle = 'rgb(255,123,243)';
+  ctx.lineWidth = 24;
+  ctx.strokeRect(100,100,200,200);
+  ctx.restore();
+
+  ctx.save();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = '#ff2a32';
+  ctx.beginPath();
+  ctx.moveTo(400,200);
+  ctx.lineTo(500,200);
+  ctx.stroke();
+  ctx.moveTo(500,200);
+  ctx.lineTo(550,200-triHeight);
+  ctx.stroke();
+  ctx.moveTo(550,200-triHeight);
+  ctx.lineTo(600,200);
+  ctx.stroke();
+  ctx.moveTo(600,200);
+  ctx.lineTo(700,200);
+  ctx.stroke();
+  ctx.moveTo(700,200);
+  ctx.lineTo(650,200+triHeight);
+  ctx.stroke();
+  ctx.moveTo(650,200+triHeight);
+  ctx.lineTo(700,200+triHeight*2);
+  ctx.stroke();
+  ctx.moveTo(700,200+triHeight*2);
+  ctx.lineTo(600,200+triHeight*2);
+  ctx.stroke();
+  ctx.moveTo(600,200+triHeight*2);
+  ctx.lineTo(550,200+triHeight*3);
+  ctx.stroke();
+  ctx.moveTo(550,200+triHeight*3);
+  ctx.lineTo(500,200+triHeight*2);
+  ctx.stroke();
+  ctx.moveTo(500,200+triHeight*2);
+  ctx.lineTo(400,200+triHeight*2);
+  ctx.stroke();
+  ctx.moveTo(400,200+triHeight*2);
+  ctx.lineTo(450,200+triHeight);
+  ctx.stroke();
+  ctx.moveTo(450,200+triHeight);
+  ctx.lineTo(400,200);
+  ctx.stroke();
+  ctx.restore();
+  ctx.save();
+
+
+  ctx.beginPath();
+  ctx.fillStyle = '#53ff55';
+  ctx.arc(200,400,100,degToRad(45),degToRad(-45),false);
+  ctx.lineTo(200,400);
+  ctx.fill();
+
+  function degToRad(deg) {
+    return deg*Math.PI/180;
+  }
+  ctx.fillStyle='#68ffff';
+  ctx.strokeStyle='#fffb56';
+  ctx.font = '66px Arial';
+  ctx.fillText('HelloWorld',800,200);
+  ctx.strokeText('HelloWorld',800,500);
+</script>
+</html>

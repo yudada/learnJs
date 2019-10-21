@@ -10,31 +10,48 @@
   <li></li>
   <li></li>
 </ul>
+<!--
+  let lis = document.querySelectAll('ul li');
+  for(var i =0 ; i< lis.length;i++){
+    //addEventListener('click'，function(){})
+    //.onclick = function(){
+
+    }
+  }
+  -->
 </body>
 <script>
-  // function showItem(i,current) {
-  //   console.log(current);
-  //   current.textContent = i;
-  // }
-  //
-  // function makeItemCallBack(i,current) {
-  //   console.log(i);
-  //   return function () {
-  //     showItem(i,current);
-  //   }
-  // }
+  function showItem(i,current) {
+    console.log(current);
+    current.textContent = i;
+  }
+
+  function makeItemCallBack(i,current) {
+    console.log(i);
+    return function () {
+      showItem(i,current);
+    }
+  }
   li = document.querySelectorAll('ul li');
-  for (var i =0;i<li.length;i++){
+  for (let i =0;i<li.length;i++){  //i == 3
+
     li[i].onclick = function () {
       this.textContent = i;
     }
 
-    //   second  li[i].onclick = makeItemCallBack(i,li[i]);
-    //  three (function (n) {
+    // (function (i) {
     //   li[i].onclick = function () {
-    //     this.textContent = n;
+    //     this.textContent = i;
     //   }
     // })(i);
+
+   // li[i].onclick = makeItemCallBack(i,li[i]);
+   //
+   // (function (n) {
+   //    li[i].onclick = function () {
+   //      this.textContent = n;
+   //    }
+   //  })(i);
   }
 </script>
 </html>

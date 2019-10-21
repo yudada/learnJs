@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<div data-toggle="buttons" class="btn-group btn-group-toggle" id="time">
+  <label class="btn btn-sm btn-white"> <input type="radio" id="option1"
+                                              name="options" value="1"> 天 </label>
+  <label class="btn btn-sm btn-white"> <input type="radio" id="option2"
+                                              name="options" value="2"> 周 </label>
+  <label class="btn btn-sm btn-white"> <input type="radio" id="option3"
+                                              name="options" value="3"> 月 </label>
+</div>
+<div id="time1">
+  <span id="1">1</span>
+  <span id="2">2</span>
+</div>
+</body>
+<script>
+  var div = document.querySelector('#time');
+  div.addEventListener('click',function (e) {
+    console.log(e.target.value);
+  })
+</script>
+</html>

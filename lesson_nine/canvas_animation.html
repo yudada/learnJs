@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  html,body{
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<body>
+<canvas id="myCanvas"></canvas>
+</body>
+<script>
+  let canvas = document.querySelector('#myCanvas');
+  let witdth = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+  let context = canvas.getContext('2d');
+  context.fillStyle = 'rgb(255,255,255)';
+  context.fillRect(0,0,witdth,height);
+
+  let centerX = canvas.width/2;
+  let centerY = canvas.height/2;
+  let rad = Math.PI*2/100;
+  let speed = 1;
+
+  function drawBlueCircle(n) {
+    context.save();
+    context.beginPath();
+    context.strokeStyle = '#49f';
+    context.lineWidth = 12;
+    context.arc(centerX,centerY,100,-Math.PI/2,-Math.PI/2+n*rad,false);
+    context.stroke();
+    context.restore();
+  }
+
+  function drawWhiteCircle() {
+    context.save();
+    context.beginPath();
+    context.strokeStyle = '#A5DEF1';
+    context.lineWidth=12;
+    context.arc(centerX,centerY,100,0,Math.PI*2,false);
+    context.stroke();
+    context.restore();
+  }
+
+  function text(n) {
+    context.save();
+    context.fillStyle = "#F47C7C";
+    context.font = '40px Arial';
+    context.textBaseline = 'middle';
+    context.textAlign = 'center';
+    context.fillText(n.toFixed(0)+'%',centerX,centerY);
+    context.restore();
+  }
+  (function drawFrame() {
+    window.requestAnimationFrame(drawFrame);
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    drawWhiteCircle();
+    text(speed);
+    drawBlueCircle(speed);
+
+    if(speed > 100) speed = 0;
+    speed += 0.1
+  })();
+</script>
+</html>

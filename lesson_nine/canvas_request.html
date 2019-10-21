@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  html,body{
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<body>
+<canvas id="myCanvas"></canvas>
+</body>
+<script>
+  let canvas = document.querySelector('#myCanvas');
+  let width = canvas.width =  window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+  let n =0;
+  let posX = 0;
+  let ctx = canvas.getContext('2d');
+  ctx.fillStyle = 'rgb(0,0,0)';
+  ctx.fillRect(0,0,width,height);
+  ctx.translate(width/2,height/2);
+  let img = new Image();
+  img.src = 'walk-right.png';
+  img.onload = walk;
+    function walk() {
+      ctx.fillRect(-width/2,-height/2,width,height);
+      ctx.drawImage(img,n*102,0,102,148,posX,0,102,148);
+      if(posX % 13 == 0){
+        if(n==5){
+          n=0;
+        }else{
+          n+=1;
+        }
+      }
+      if(posX > width/2){
+        posX = -width/2;
+      }else{
+        posX+=2;
+      }
+      window.requestAnimationFrame(walk);
+  }
+</script>
+</html>

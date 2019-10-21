@@ -54,7 +54,17 @@
     //   }
     // }
     // console.log(fetch(url));
-    let promise = fetch(url);
+    let param = {name:'xxx'};
+    let promise = fetch(url,{
+      method:'POST',
+      headers:{
+        'Accept':'application/json',
+        'Content-type':'application/json'
+      },
+      body:JSON.stringify(param),
+      mode:'cors',
+      credentials:'same-origin'
+    });
     promise.then(function (response) {
       return response.text();
     }).then(function (text) {
@@ -62,5 +72,32 @@
     });
   }
   updateDisplay('verse1');
+
+  let xhr = new XMLHttpRequest();
+  xhr.open();
+  xhr.send();
+  xhr.onreadystatechange = function () {
+    if(xhr.readyState == 4 && xhr.status == 200){
+      xhr.open();
+      xhr.send();
+      xhr.onreadystatechange = function () {
+        if(xhr.readyState == 4 && xhr.status == 200){
+          xhr.open();
+          xhr.send();
+          xhr.onreadystatechange = function () {
+            if(xhr.readyState == 4 && xhr.status == 200){
+
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  fetch().then(function (response) {
+
+  }).then().then().then().then();
+
 </script>
 </html>
