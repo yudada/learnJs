@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  document.cookie = "name=roi;";
+  console.log(document.cookie);
+  let xhr = new XMLHttpRequest();
+  xhr.open('POST','www.baidu.com');
+  xhr.send();
+  xhr.onreadystatechange = function () {
+    if(xhr.readyState == 4){
+
+    }
+  }
+</script>
+</html>
