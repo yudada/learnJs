@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">click</button>
+<button id="delete">delete</button>
+</body>
+<script>
+  window.onload = function(){
+  let request = window.indexedDB.open('web',1);
+  let db;
+  request.onerror = function () {
+    console.log('open failed');
+  }
+  request.onsuccess = function () {
+    db = request.result;
+    console.log(db);
+    console.log('open success');
+  }
+  request.onupgradeneeded = function (e) {
+   let db = e.target.result;
+   let products = db.createObjectStore('products',{keyPath:'id',autoIncrement:true});
+   products.createIndex('pro_name','pro_name',{unique:false});
+   products.createIndex('price','price',{unique:false});
+    console.log('Database setup complete')
+  }
+
+  function btn(e) {
+    e.preventDefault();
+    let product = {pro_name:'伯纳天纯狗粮',price:458};
+    console.log(db);
+    let transaction = db.transaction(['products'],"readwrite");
+    let obS = transaction.objectStore('products');
+    let res = obS.add(product);
+    res.onsuccess = function() {
+      console.log('add success');
+    };
+
+    transaction.oncomplete = function() {
+      show();
+      console.log('Transaction completed: database modification finished.');
+    };
+
+    transaction.onerror = function() {
+      console.log('Transaction not opened due to error');
+    };
+  }
+  function show(){
+    let objectStore = db.transaction('products').objectStore('products');
+    let obs = db.transaction('products').objectStore('products');
+    obs.openCursor().onsuccess = function(e) {
+      let cursor = e.target.result;
+      if(cursor){
+        console.log(cursor.value);
+        cursor.continue();
+      }
+    }
+  };
+  function del(e) {
+    e.preventDefault();
+      let transaction = db.transaction(['products'], 'readwrite');
+      let objectStore = transaction.objectStore('products');
+      let request = objectStore.delete(1);
+      let name = objectStore.index('pro_name');
+
+    }
+  document.querySelector('#btn').addEventListener('click',btn);
+  document.querySelector('#delete').addEventListener('click',del );
+  }
+</script>
+</html>

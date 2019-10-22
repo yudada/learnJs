@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="add">Add data</button>
+<button id="get">Get data</button>
+<button id="del">Delete data</button>
+<button id="update">Update Data</button>
+</body>
+<script>
+  document.cookie = 'name=yuxiang';
+  let xhr = new XMLHttpRequest();
+  // xhr.open('POST','www.baidu.com');
+  // xhr.send();
+  // xhr.onreadystatechange = function () {
+  // }
+  console.log(document.cookie);
+
+  window.localStorage.setItem('name','xxxxxxxx');
+  let userName = localStorage.getItem('name');
+  console.log(userName);
+  localStorage.removeItem('name');
+  let userName1 = localStorage.getItem('name');
+  console.log(userName1);
+let idb;
+window.onload = function(){
+  idb = window.indexedDB.open('user',1);
+  idb.onerror = function () {
+    console.log('database user open failed');
+  }
+  idb.onsuccess = function () {
+    console.log('db user open success');
+  }
+  idb.onupgradeneeded = function () {
+    let request = idb.result;
+    let objectStore =  request.createObjectStore('name',{autoIncrement:true});
+    objectStore.createIndex('firstname','firstname',{unique:false});
+    objectStore.createIndex('lastname','lastname',{unique:false});
+    objectStore.onerror = function () {
+      console.log('failed');
+    }
+    objectStore.onsuccess = function () {
+      console.log('success');
+    }
+    objectStore.oncomplete = function () {
+      console.log('completed');
+    }
+  }
+}
+
+
+  let objectStore;
+  function getObjectStore() {
+    let res = idb.result;
+    console.log(res);
+    let transaction = res.transaction('name',"readwrite");//readonly
+    return transaction.objectStore('name');
+  }
+
+  document.querySelector('#add').addEventListener('click',function () {
+    objectStore = getObjectStore();
+    let user_one = {firstname:'hehe',lastname:'haha'};
+    objectStore.add(user_one);
+  })
+
+  document.querySelector('#get').addEventListener('click',function () {
+    objectStore = getObjectStore();
+      objectStore.openCursor().onsuccess = function (e) {
+        let cursor = e.target.result;
+        if(cursor){
+          console.log(cursor.value);
+          cursor.continue();
+        }
+      }
+      let data = objectStore.get(2);
+     data.onsuccess = function (e) {
+       console.log(e.target.result);
+     }
+
+      let data1 = objectStore.index('firstname');
+      data1.get('hehe1').onsuccess=function(e){
+      console.log(e.target.result);
+    }
+
+  })
+  document.querySelector('#del').addEventListener('click',function () {
+    objectStore = getObjectStore();
+    objectStore.delete(1);
+  })
+
+  document.querySelector('#update').addEventListener('click',function () {
+    objectStore = getObjectStore();
+    objectStore.put({firstname:'hehe1',lastname:'haha2'},2);
+  })
+
+  //add()  put()   delete()  get()/openCursor()  open()
+
+
+</script>
+</html>
