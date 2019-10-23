@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swiper</title>
+</head>
+<style>
+  html,body{
+    margin: 0;
+    padding: 0;
+  }
+  .container{
+    width: 800px;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  .swiper{
+    width: 4800px;
+    height: 600px;
+    position: absolute;
+    z-index: 1;
+    transition: 1s all;
+  }
+  .swiper img{
+    float: left;
+    width: 800px;
+    height: 600px;
+  }
+  .arrow{
+    position: absolute;
+    height: 100px;
+    width: 50px;
+    font-size: 50px;
+    color: #fff;
+    line-height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    z-index: 3;
+  }
+  #prev{
+    left: 0;
+    top: 250px;
+  }
+  #next{
+    right: 0;
+    top: 250px;
+  }
+  .arrow:hover{
+    background:#666666;
+  }
+  .dots{
+    position: absolute;
+    width: 290px;
+    left: 255px;
+    bottom: 20px;
+    height: 40px;
+    z-index: 2;
+  }
+  .dots span{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #e98352;
+    border-radius: 50%;
+    margin-right: 10px;
+    float: left;
+    cursor: pointer;
+  }
+  .dots span:last-child{
+    margin-right: 0;
+  }
+ .dots .on{
+    background-color: #cccccc;
+  }
+</style>
+<body>
+<div class="container">
+<div class="swiper" style="left: 0px;">
+  <img src="img/bg1.jpg">
+  <img src="img/bg2.jpg">
+  <img src="img/bg3.jpg">
+  <img src="img/bg4.jpg">
+  <img src="img/bg5.jpg">
+  <img src="img/bg6.jpg">
+</div>
+  <div class="arrow" id="prev">&lt;</div>
+  <div class="arrow" id="next">&gt;</div>
+  <div class="dots">
+    <span class="on" index="1"></span>
+    <span index="2"></span>
+    <span index="3"></span>
+    <span index="4"></span>
+    <span index="5"></span>
+    <span index="6"></span>
+  </div>
+</div>
+</body>
+<script>
+  let prev = document.querySelector('#prev');
+  let next = document.querySelector('#next');
+  let swiper = document.querySelector('.swiper');
+  let span_array = document.querySelectorAll('.dots span');
+  let index = 1;
+  let timer;
+  let container = document.querySelector('.container');
+
+  next.addEventListener('click',nextClick);
+  prev.addEventListener('click',prevClick);
+
+  function nextClick() {
+    if(index ==6){
+      index = 1;
+    }else{
+      index+=1;
+    }
+    if(parseInt(swiper.style.left) == -4000){
+      swiper.style.left = 0+'px';
+    }else{
+      swiper.style.left = parseInt(swiper.style.left)-800+'px';
+    }
+    showDot();
+  }
+
+  function prevClick() {
+    if(parseInt(swiper.style.left) == 0){
+      swiper.style.left = -4000+'px';
+    }else{
+      swiper.style.left = parseInt(swiper.style.left)+800+'px';
+    }
+    if(index == 1){
+      index=6;
+    }else{
+      index-=1;
+    }
+    showDot();
+  }
+
+  function showDot() {
+    for (let i = 0;i<span_array.length;i++){
+      span_array[i].setAttribute('class','');
+    }
+    span_array[index-1].setAttribute('class','on');
+  }
+  for (let i =0;i<span_array.length;i++){
+    span_array[i].onclick = function () {
+      let currentIndex = i+1;
+      let offset = Math.abs((index-currentIndex)*800);
+      if(currentIndex<index){
+        swiper.style.left = parseInt(swiper.style.left)+offset+'px';
+      }else{
+        swiper.style.left = parseInt(swiper.style.left)-offset+'px';
+      }
+      index = currentIndex;
+      showDot();
+    }
+  }
+  timer = setInterval(function () {
+    nextClick();
+  },1000);
+  container.addEventListener('mouseover',function () {
+    clearInterval(timer);
+  });
+
+  container.addEventListener('mouseout',function () {
+    timer = setInterval(function () {
+      nextClick();
+    },1000);
+  })
+
+</script>
+</html>
