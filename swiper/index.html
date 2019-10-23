@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>swiper</title>
+</head>
+<style>
+  html,body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .container{
+    width: 800px;
+    height: 600px;
+   position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  .swiper{
+    position: absolute;
+    width: 4800px;
+    height: 600px;
+    border: 1px solid black;
+    z-index: 1;
+    transition: 1s all;
+  }
+  .swiper img{
+    width:800px;
+    max-height: 600px;
+    float: left;
+  }
+  #buttons{
+    position: absolute;
+    height: 20px;
+    width: 200px;
+    z-index: 2;
+    bottom: 20px;
+    left: 300px;
+  }
+  #buttons span{
+    cursor: pointer;
+    float: left;
+    border: 1px solid aqua;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    margin-right: 13.6px;
+    background: #e98352;
+  }
+  #buttons span:last-child{
+    margin-right: 0;
+  }
+  #buttons .on {
+    background: #474550;
+  }
+  .arrow {
+    cursor: pointer;
+    line-height: 100px;
+    text-align: center;
+    font-size: 45px;
+    width: 66px;
+    height: 100px;
+    position: absolute;
+    z-index: 2;
+    top: 250px;
+    color: #fff;
+  }
+  #prev {
+    left: 0;
+  }
+  #next {
+    right: 0;
+  }
+  #prev:hover,
+  #next:hover {
+    background: #333;
+  }
+</style>
+<body>
+<div class="container">
+<div class="swiper" style="left: 0px;">
+  <img src="img/bg1.jpg">
+  <img src="img/bg2.jpg">
+  <img src="img/bg3.jpg">
+  <img src="img/bg4.jpg">
+  <img src="img/bg5.jpg">
+  <img src="img/bg6.jpg">
+</div>
+  <div id="buttons">
+    <span index="1" class="on"></span>
+    <span index="2"></span>
+    <span index="3"></span>
+    <span index="4"></span>
+    <span index="5"></span>
+    <span index="6"></span>
+  </div>
+  <a  class="arrow" id="prev">&lt;</a>
+  <a  class="arrow" id="next">&gt;</a>
+</div>
+</body>
+<script>
+  let prev = document.querySelector('#prev');
+  let next = document.querySelector('#next');
+  let swiper = document.querySelector('.swiper');
+  let buttons = document.querySelector('#buttons').querySelectorAll('span');
+  let index = 1;
+
+  prev.addEventListener('click',prevClick);
+  function prevClick(e,offset=800){
+    e.preventDefault();
+    index -= 1;
+    if(index < 1){
+      index = 6;
+    }
+    showButton();
+    if(parseInt(swiper.style.left) == 0){
+      swiper.style.left = -4000 +'px';
+    }
+    swiper.style.left = parseInt(swiper.style.left)+offset+'px';
+  }
+
+  next.addEventListener('click',function (e) {
+    e.preventDefault();
+    index += 1;
+    if(index > 6){
+      index = 1;
+    }
+    showButton();
+    swiper.style.left = parseInt(swiper.style.left)-800+'px';
+    if(parseInt(swiper.style.left) == -4800){
+      swiper.style.left = 0 +'px';
+    }
+  })
+
+  var timer;
+  function autoplay() {
+    timer = setInterval(function(){
+      triggerClick(next);
+    }, 2000);
+  }
+  autoplay();
+
+  let container = document.querySelector('.container');
+  function stopplay() {
+    clearInterval(timer);
+  }
+  container.onmouseover = stopplay;
+  container.onmouseout = autoplay;
+
+  function triggerClick(node){
+    if (document.createEvent) {
+      let evt = new CustomEvent('click');
+      node.dispatchEvent(evt);
+    } else if (document.createEventObject) {
+      node.fireEvent('onclick') ;
+    } else if (typeof node.onclick == 'function') {
+      node.onclick();
+    }
+  }
+
+  function showButton() {
+    //清除之前的样式
+    for(let i = 0; i<buttons.length; i++){
+      if(buttons[i].className == 'on'){
+        buttons[i].className = '';
+      }
+    }
+    buttons[index-1].className = 'on';
+  }
+  for(let i=0; i<buttons.length; i++){
+    buttons[i].onclick = function(){
+      let clickIndex = parseInt(this.getAttribute('index'));
+      if(clickIndex < index){
+        let offset = 800*(index - clickIndex);
+        swiper.style.left = parseInt(swiper.style.left) + offset+'px';
+      }else{
+        let offset = 800*(clickIndex - index);
+        swiper.style.left = parseInt(swiper.style.left)-offset+'px';
+      }
+      index = clickIndex;
+      showButton();
+    }
+  }
+</script>
+</html>
