@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <label for="upload">选择文件：</label>
+  <input type="file" id="upload">
+</body>
+<script>
+  let upload = document.querySelector('#upload');
+  let formData = new FormData();
+  let xhr = new XMLHttpRequest();
+  upload.addEventListener('change',function () {
+    let fileList = upload.files;
+    console.log(fileList[0]);
+    formData.append('file',fileList[0]);
+    console.log(formData);
+    xhr.open('POST','/upload.php');
+    xhr.send(formData);
+
+    xhr.onreadystatechange = function () {
+      if(xhr.readyState==4 && xhr.status==200){
+        console.log(xhr.response);
+      }
+    }
+  })
+</script>
+</html>

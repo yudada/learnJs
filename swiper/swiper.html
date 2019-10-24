@@ -17,7 +17,7 @@
     margin: 0 auto;
   }
   .swiper{
-    width: 4800px;
+    width: 6400px;
     height: 600px;
     position: absolute;
     z-index: 1;
@@ -78,13 +78,15 @@
 </style>
 <body>
 <div class="container">
-<div class="swiper" style="left: 0px;">
+<div class="swiper" style="left: -800px;">
+  <img src="img/bg6.jpg">
   <img src="img/bg1.jpg">
   <img src="img/bg2.jpg">
   <img src="img/bg3.jpg">
   <img src="img/bg4.jpg">
   <img src="img/bg5.jpg">
   <img src="img/bg6.jpg">
+  <img src="img/bg1.jpg">
 </div>
   <div class="arrow" id="prev">&lt;</div>
   <div class="arrow" id="next">&gt;</div>
@@ -106,34 +108,41 @@
   let index = 1;
   let timer;
   let container = document.querySelector('.container');
+  var animated=false;
 
   next.addEventListener('click',nextClick);
   prev.addEventListener('click',prevClick);
 
   function nextClick() {
-    if(index ==6){
+   if(index >= 6){
       index = 1;
+      swiper.style.left = "-800px";
+      swiper.style.transition = 'left 0s';
     }else{
-      index+=1;
-    }
-    if(parseInt(swiper.style.left) == -4000){
-      swiper.style.left = 0+'px';
-    }else{
-      swiper.style.left = parseInt(swiper.style.left)-800+'px';
+      index += 1;
+      // if(parseInt(swiper.style.left) == -4000){
+      //   swiper.style.left = 0+'px';
+      // }else{
+        swiper.style.left = parseInt(swiper.style.left)-800+'px';
+      swiper.style.transition = 'left 1s';
+      //}
     }
     showDot();
   }
 
   function prevClick() {
-    if(parseInt(swiper.style.left) == 0){
-      swiper.style.left = -4000+'px';
-    }else{
-      swiper.style.left = parseInt(swiper.style.left)+800+'px';
-    }
-    if(index == 1){
-      index=6;
+    if(index <= 1){
+      index = 6;
+      swiper.style.left = "-4800px";
+      swiper.style.transition = 'left 0s';
     }else{
       index-=1;
+      // if(parseInt(swiper.style.left) == -800){
+      //   swiper.style.left = -4000+'px';
+      // }else{
+        swiper.style.left = parseInt(swiper.style.left)+800+'px';
+        swiper.style.transition = 'left 1s';
+      //}
     }
     showDot();
   }
@@ -142,6 +151,7 @@
     for (let i = 0;i<span_array.length;i++){
       span_array[i].setAttribute('class','');
     }
+    console.log(index);
     span_array[index-1].setAttribute('class','on');
   }
   for (let i =0;i<span_array.length;i++){
@@ -169,6 +179,7 @@
       nextClick();
     },1000);
   })
+
 
 </script>
 </html>
