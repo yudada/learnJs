@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="75a46b65-8bf2-4d60-b053-962ab37c591e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swiper/swiper.html" beforeDir="false" afterPath="$PROJECT_DIR$/swiper/swiper.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,28 +17,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/file_upload/upload1.html">
+        <entry file="file://$PROJECT_DIR$/boostrap/start.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+            <state relative-caret-position="315">
+              <caret line="15" column="6" lean-forward="true" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/file_upload/dropzone.html">
+        <entry file="file://$PROJECT_DIR$/boostrap/bt.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="175">
+              <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/file_upload/drop_zone.html">
+        <entry file="file://$PROJECT_DIR$/boostrap/media.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="66" column="45" lean-forward="true" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
+            <state relative-caret-position="423">
+              <caret line="49" column="19" lean-forward="true" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -71,16 +83,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lesson_seven/EC.html" />
-        <option value="$PROJECT_DIR$/lesson_seven/prototype.html" />
-        <option value="$PROJECT_DIR$/ajax/verse1.txt" />
-        <option value="$PROJECT_DIR$/ajax/verse2" />
-        <option value="$PROJECT_DIR$/ajax/verse3.txt" />
         <option value="$PROJECT_DIR$/ajax/verse4.txt" />
         <option value="$PROJECT_DIR$/ajax/ajax.html" />
         <option value="$PROJECT_DIR$/ajax/store.html" />
         <option value="$PROJECT_DIR$/ajax/store.js" />
-        <option value="$PROJECT_DIR$/test.html" />
         <option value="$PROJECT_DIR$/lesson_eight/verse1.txt" />
         <option value="$PROJECT_DIR$/lesson_eight/verse2.txt" />
         <option value="$PROJECT_DIR$/lesson_eight/verse3.txt" />
@@ -122,10 +128,16 @@
         <option value="$PROJECT_DIR$/file_upload/dropzone.html" />
         <option value="$PROJECT_DIR$/file_upload/upload1.html" />
         <option value="$PROJECT_DIR$/file_upload/drop_zone.html" />
+        <option value="$PROJECT_DIR$/test.html" />
+        <option value="$PROJECT_DIR$/boostrap/start.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/boostrap/index.html" />
+        <option value="$PROJECT_DIR$/boostrap/bt.html" />
+        <option value="$PROJECT_DIR$/boostrap/media.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
@@ -137,7 +149,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -148,12 +159,19 @@
             <path>
               <item name="Javascript_learning" type="b2602c69:ProjectViewProjectNode" />
               <item name="Javascript_learning" type="462c0819:PsiDirectoryNode" />
-              <item name="file_upload" type="462c0819:PsiDirectoryNode" />
+              <item name="boostrap" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Javascript_learning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Javascript_learning" type="462c0819:PsiDirectoryNode" />
+              <item name="boostrap" type="462c0819:PsiDirectoryNode" />
+              <item name="boostrap" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -168,14 +186,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\xampp\htdocs\Javascript_learning\boostrap" />
+      <recent name="E:\xampp\htdocs\Javascript_learning\lesson_one" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\xampp\htdocs\Javascript_learning\swiper\img" />
       <recent name="E:\xampp\htdocs\Javascript_learning\lesson_ten" />
       <recent name="E:\xampp\htdocs\Javascript_learning\lesson_nine" />
       <recent name="E:\xampp\htdocs\Javascript_learning\lesson_eight" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\xampp\htdocs\Javascript_learning\lesson_one" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -190,29 +209,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.drop_zone.html">
-    <configuration name="drop.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Javascript_learning/file_upload/drop.html" useBuiltInWebServerPort="true">
+  <component name="RunManager" selected="JavaScript Debug.media.html">
+    <configuration name="bt.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Javascript_learning/boostrap/bt.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="drop_zone.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Javascript_learning/file_upload/drop_zone.html" useBuiltInWebServerPort="true">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Javascript_learning/boostrap/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="dropzone.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Javascript_learning/file_upload/dropzone.html" useBuiltInWebServerPort="true">
+    <configuration name="media.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Javascript_learning/boostrap/media.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="upload1.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Javascript_learning/file_upload/upload1.html" useBuiltInWebServerPort="true">
+    <configuration name="start.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Javascript_learning/boostrap/start.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="upload.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Javascript_learning/file_upload/upload.html" useBuiltInWebServerPort="true">
+    <configuration name="test.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Javascript_learning/test.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.drop_zone.html" />
-        <item itemvalue="JavaScript Debug.dropzone.html" />
-        <item itemvalue="JavaScript Debug.upload1.html" />
-        <item itemvalue="JavaScript Debug.drop.html" />
-        <item itemvalue="JavaScript Debug.upload.html" />
+        <item itemvalue="JavaScript Debug.media.html" />
+        <item itemvalue="JavaScript Debug.start.html" />
+        <item itemvalue="JavaScript Debug.bt.html" />
+        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.test.html" />
       </list>
     </recent_temporary>
   </component>
@@ -273,18 +292,22 @@
       <workItem from="1571808228236" duration="12997000" />
       <workItem from="1571843640277" duration="3254000" />
       <workItem from="1571879541399" duration="52000" />
-      <workItem from="1571897234567" duration="7599000" />
+      <workItem from="1571897234567" duration="8595000" />
+      <workItem from="1571910659249" duration="606000" />
+      <workItem from="1571930769181" duration="670000" />
+      <workItem from="1571966275148" duration="29000" />
+      <workItem from="1571984529268" duration="3611000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="246719000" />
+    <option name="totallyTimeSpent" value="252631000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24330357" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24330357" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -307,46 +330,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/Documents/Downloads/learning-area-master/learning-area-master/javascript/apis/fetching-data/can-store/can-script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="21" column="44" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lesson_eight/products.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1505">
-          <caret line="5" column="25" lean-forward="true" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lesson_eight/ajax.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3500">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lesson_eight/api.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="214" column="65" selection-start-line="214" selection-start-column="65" selection-end-line="214" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lesson_eight/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Documents/Downloads/learning-area-master/learning-area-master/javascript/apis/third-party-apis/nytimes/nytimes_start.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1502" />
-      </provider>
-    </entry>
     <entry file="file://D:/Documents/Downloads/learning-area-master/learning-area-master/javascript/apis/third-party-apis/google-maps/simple-maps-example.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -605,10 +588,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file_upload/drop.html">
+    <entry file="file://$PROJECT_DIR$/file_upload/drop_zone.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+        <state relative-caret-position="315">
+          <caret line="66" column="45" lean-forward="true" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -626,10 +609,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file_upload/drop_zone.html">
+    <entry file="file://$PROJECT_DIR$/file_upload/drop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/boostrap/boostrap/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="4" column="41440" lean-forward="true" selection-start-line="4" selection-start-column="41440" selection-end-line="4" selection-end-column="41440" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/boostrap/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="66" column="45" lean-forward="true" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
+          <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/boostrap/start.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="6" lean-forward="true" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/boostrap/bt.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/boostrap/media.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="49" column="19" lean-forward="true" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
         </state>
       </provider>
     </entry>

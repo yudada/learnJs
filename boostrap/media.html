@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<style>
+  .container1{
+    height: 200px;
+    width: 500px;
+    background-color: yellow;
+  }
+  .container2{
+    height: 100px;
+    width: 300px;
+    background-color: #ff3f4b;
+  }
+  @media all and (max-width: 1200px) {
+    .container1{
+      height: 200px;
+      width: 500px;
+      background-color: #35ff26;
+    }
+    .container2{
+      height: 100px;
+      width: 300px;
+      background-color: #0009ff;
+    }
+  }
+  @media all and (max-width: 992px) {
+    .container1{
+      height: 150px;
+      width: 300px;
+      background-color: yellow;
+    }
+    .container2{
+      height: 75px;
+      width: 165px;
+      background-color: #ff3f4b;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .container1{
+      height: 100px;
+      width: 250px;
+      background-color: #ff00e5;
+    }
+    .container2{
+      height: 50px;
+      width: 150px;
+      background-color: #a9ff3f;
+    }
+  }
+</style>
+<body>
+<div class="container1"></div>
+<div class="container2"></div>
+</body>
+</html>
