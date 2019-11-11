@@ -10,17 +10,33 @@
 <script>
   let a=[1,2,3];
   let b=[4,5,6];
+  let a_one = deep_copy(a); //[1,2,3]
   function concat(arr1,arr2){
    let new_arr = [];
-   new_arr =  arr1.splice(0);
+   new_arr =  arr1.splice(0); //[1,2,3,4,5,6]
    for (let i = 0;i<arr2.length;i++){
      new_arr.push(arr2[i]);
    }
    return new_arr;
   }
-  let arr3 = concat(a,b);
+  let arr3 = concat(a_one,b);
   console.log(arr3);
   console.log(a);
   console.log(b);
+
+  function deep_copy(arr) {
+    let newArr = [];
+    for (let i =0;i<arr.length;i++){
+      if(arr[i] instanceof Array){
+        deep_copy(arr[i]);
+      }else{
+        newArr.push(arr[i]);
+      }
+    }
+    return newArr;
+  }
+
+
+
 </script>
 </html>

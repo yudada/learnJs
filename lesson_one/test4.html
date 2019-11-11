@@ -21,5 +21,21 @@
   }
  uniq(arr);
   console.log(arr);
+
+
+
+  let a=[1,2,2,3,4,4,4,4];
+  let b=[];
+  let c=[];
+  function uniq() {
+    for(let i=0;i<a.length;i++){
+      if (a.indexOf(a[i],i+1)==-1){
+        b.splice(0,0,a[i]);
+        // b=a.splice(i,0,a[i])
+      }
+    }
+    console.log(b)
+  }
+  uniq();
 </script>
 </html>

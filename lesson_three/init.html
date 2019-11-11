@@ -8,15 +8,17 @@
 
 </body>
 <script>
-
+var x ;
   function init() {
-    var name = "Mozilla"; // name 是一个被 init 创建的局部变量
-    function displayName() {
-     // displayName() 是内部函数,一个闭包
-      alert(name); // 使用了父函数中声明的变量
+    var name = "Mozilla";// name 是一个被 init 创建的局部变量
+    return function () {
+      // displayName() 是内部函数,一个闭包
+      alert(name);// 使用了父函数中声明的变量
     }
-    displayName();
   }
-  init();
+  let xx = init();//xx = function(){}
+  xx();
+  //let insideName = xx();
+  //console.log(insideName);
 </script>
 </html>

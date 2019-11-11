@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  .container{
+    width: 816px;
+    height: 280px;
+    overflow: hidden;
+    background: #fff url(line.gif) no-repeat;
+    margin: 0 auto;
+    position: relative;
+  }
+  .swiper_list1{
+    width: 104px;
+    height: 120px;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    margin: 0;
+    padding: 0;
+  }
+  .swiper_list2{
+    width: 104px;
+    height: 120px;
+    overflow: hidden;
+    position: absolute;
+    left: 175px;
+    top: 60px;
+    margin: 0;
+    padding: 0;
+  }
+  .swiper_list3{
+    width: 104px;
+    height: 120px;
+    overflow: hidden;
+    position: absolute;
+    left: 350px;
+    top: 90px;
+    margin: 0;
+    padding: 0;
+  }
+  .swiper_list4{
+    width: 104px;
+    height: 120px;
+    overflow: hidden;
+    position: absolute;
+    left: 525px;
+    top: 60px;
+    margin: 0;
+    padding: 0;
+  }
+  .swiper_list5{
+    width: 104px;
+    height: 120px;
+    overflow: hidden;
+    position: absolute;
+    left: 700px;
+    top: 30px;
+    margin: 0;
+    padding: 0;
+  }
+  .swiper_img{
+    width: 100%;
+    height: 100%;
+  }
+  .btn{
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .list{
+    transition: 1s all;
+  }
+</style>
+<body style="display: flex;justify-content: center;align-items: center;">
+<div class="btn" id="prev"><</div>
+<div class="container">
+  <div class="swiper_list1 list" index="1">
+    <div style="width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0; background: url(picMask_02.png) left top no-repeat;"></div>
+    <img class="swiper_img" src="pic_02.jpg">
+  </div>
+  <div class="swiper_list2 list" index="2">
+    <div style="width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0; background: url(picMask_02.png) left top no-repeat;"></div>
+    <img class="swiper_img" src="pic_02.jpg">
+  </div>
+  <div class="swiper_list3 list" index="3">
+    <div style="width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0; background: url(picMask_02.png) left top no-repeat;"></div>
+    <img class="swiper_img" src="pic_02.jpg">
+  </div>
+  <div class="swiper_list4 list" index="4">
+    <div style="width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0; background: url(picMask_02.png) left top no-repeat;"></div>
+    <img class="swiper_img" src="pic_02.jpg">
+  </div>
+  <div class="swiper_list5 list" index="5">
+    <div style="width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0; background: url(picMask_02.png) left top no-repeat;"></div>
+    <img class="swiper_img" src="pic_02.jpg">
+  </div>
+</div>
+<div class="btn" id="next">
+  >
+</div>
+</body>
+<script>
+  let next = document.querySelector('#next');
+  let prev = document.querySelector('#prev');
+  let img_divs = document.querySelectorAll('.list');
+  let old_mid = mid = Math.ceil(img_divs.length/2);
+  next.addEventListener('click',function () {
+      for (let i =0;i<img_divs.length;i++){
+        let index = img_divs[i].getAttribute('index');
+        let style = window.getComputedStyle(img_divs[i], null);
+        if(index <= mid){
+          let left = parseInt(style.left)-175+'px';
+          let top = parseInt(style.top)-30+'px';
+          img_divs[i].setAttribute('style','left:'+left+';top:'+top+';');
+        }else{
+          let left = parseInt(style.left)-175+'px';
+          let top = parseInt(style.top)+30+'px';
+          img_divs[i].setAttribute('style','left:'+left+';top:'+top+';');
+        }
+      }
+    mid++;
+  })
+  prev.addEventListener('click',function () {
+    for (let i =0;i<img_divs.length;i++){
+      let index = img_divs[i].getAttribute('index');
+      let style = window.getComputedStyle(img_divs[i], null);
+      if(index >=mid){
+        let left = parseInt(style.left)+175+'px';
+        let top = parseInt(style.top)-30+'px';
+        img_divs[i].setAttribute('style','left:'+left+';top:'+top+';');
+      }else{
+        let left = parseInt(style.left)+175+'px';
+        let top = parseInt(style.top)+30+'px';
+        img_divs[i].setAttribute('style','left:'+left+';top:'+top+';');
+      }
+    }
+    mid--;
+  })
+</script>
+</html>

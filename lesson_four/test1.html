@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="c2" class="click">Click2</button>
+<button id="c1" class="click">Click</button>
+<p id="text">
+  <button >p</button>
+  <input name="xx" value="xxx">
+</p>
+<ul>
+  <li></li>
+  <li></li>
+</ul>
+</body>
+<script>
+  let btn = document.querySelector('#c1');//.click  button
+  let btn_arr = document.querySelectorAll('ul li');
+  let btn1 = document.getElementById('c1');
+  let btn2 = document.getElementsByClassName('click');
+  let btn3 = document.getElementsByTagName('button');
+  let btn4 = document.getElementsByName('xx');
+  console.log(btn);
+  console.log(btn_arr);
+  for(let i = 0;i<btn_arr.length;i++){
+    console.log(btn_arr[i]);
+  }
+  console.log(btn1);
+  console.log(btn2[1]);
+  console.log(btn3);
+  console.log(btn4);
+
+  let p = document.querySelector('#text');
+  console.log(p.children[0]);
+  console.log(p.parentNode);
+  let input = document.querySelector('input');
+  input.value = 'hello world';
+  btn.textContent = 'LCLOLOLOLO';
+  btn.innerText = 'ASDFDFFFF';
+  p.innerHTML = '<span style="color: red;">123456</span>';
+  btn.className = 'click second';
+  console.log(btn.className);
+</script>
+</html>

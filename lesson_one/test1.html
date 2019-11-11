@@ -41,5 +41,23 @@
 
   filterArray(randomArr);
   console.log(randomArr);
+
+
+  function filterArray() {
+    let aaa1=['abcss','qwer','asdf','nihaoa'];
+let new_arr = [];
+    for (let i=0;i<aaa1.length;i++){
+      if(aaa1[i].length !=4){
+       // aaa1.splice(i,1);
+        //i--;
+        new_arr.push(aaa1[i]);
+      }
+    }
+    console.log(aaa1);
+  }
+  filterArray();
+
+
+
 </script>
 </html>

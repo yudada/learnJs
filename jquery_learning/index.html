@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  #div1{
+    transition: 3s all;
+  }
+</style>
+<body>
+<div id="div1">
+  <span>Jquery</span>
+  <input type="text" placeholder="input your name" name="username" id="user_name">
+</div>
+<button id="hide">Click show or hide</button>
+</body>
+<script src="../jquery/jquery-3.4.1.min.js"></script>
+<script>
+window.onload = function () {
+  let div1 = document.querySelector('#div1');
+  console.log(div1);
+  div1.style.fontSize = '26px';
+  let btn = document.querySelector('#hide');
+  btn.addEventListener('click',function () {
+    // if(div1.style.display == 'block'){
+    //   div1.style.display = 'none';
+    // }else{
+    //   div1.style.display = 'block';
+    // }
+    div1.style.transition = '2s all';
+    div1.style.width = '50%';
+  })
+}
+$(document).ready(function () {
+  let div_1 = $('#div1');
+  let username = $('#user_name');
+  console.log(div_1);
+  div_1.css('background','red');
+let display = div_1.css('display');
+  $('#hide').on('click',function () {   //xxx.onclick   xxx.click()
+    // if(div_1.is(':hidden')){
+    //   div_1.slideUp('slow');
+    // }else{
+    //   div_1.slideDown('slow');
+    // }
+    // div_1.toggle();
+    //div_1.slideToggle();
+    div_1.animate({width:'50%'},'slow');
+  })
+  div_1.hover(function(){
+    // alert(1);
+  },
+  function () {
+    // alert(2);
+  })
+  username.on('blur',function () { //onfocus  onblur
+    console.log(username.val());
+    if(username.val() == ''||username.val() == 'undefined'){ //xx.value
+      console.log(1111);
+      div_1.find('span').text('username not null');//textContent  innerText
+      username.focus();
+    }
+  });
+  username.on('input',function () {
+    div_1.find('span').text('');
+  })
+
+  //getAttribute  setAttribute
+  div_1.attr('display','none');
+  div_1.find('span').append('追加文本');
+  div_1.find('span').after('<p>追加的p元素</p>');
+  div_1.find('p').remove();//removeChild
+  div_1.addClass('new_class  new_class2');//className = ''
+  div_1.removeClass('new_class2');
+  console.log(div_1.parent().siblings().parent().next().find());
+});
+//  [x , y , z]  0 1 2  aaa.eq(2);  aaa.first()  aaa.last();
+
+let argus = {};
+  let xhr = new XMLHttpRequest();
+  xhr.open('POST',url);//POST
+  xhr.send(argus);
+  xhr.onreadystatechange = function () {
+
+  }
+
+
+  $.ajax({
+      url:url,
+    dataType:'JSON',
+    method:'GET',//POST
+    data:{},
+    success:function () {
+
+    },
+    error:function () {
+
+    }
+    }
+  );
+  $.post('index.php',{'username':username,'argu':argu1},function (e) {
+    if(e.code == 1){
+
+    }else{
+
+    }
+  });
+  $.get('index.php',function (e) {  //{code:1}  0
+    if(e.code == 1){
+
+    }else{
+
+    }
+  });
+</script>
+</html>

@@ -18,71 +18,108 @@
 //
 //   }
 
-  if( 4 > 5 ) {
-    console.log('xxxxx');
-  }
-  console.log('always run');
-
-
-  5 > 4?console.log("4大于5"):console.log('5大于4');//  true/false? true-code:false-code ;
-
-  if(x == y){
-    //A
-    if(a == b){
-
-    }else{
-
-    }
-  }else if(x > y ){
-    //B
-  }else{
-    //C
-  }
-
-  if(x>5&&y<6){ // true&&true
-    //A
-  }
-
-  if(x<10 || y>8){  //x=11  11<10? false  y=9 9>8 true
-    //B
-  }
-
-  if(!(x>y)){
-    //x = 5  y=6  5>6 false  !false == true
-    //x = 6 y = 5 6>5  true  !true ===false
-   }
-
-  if(x==1){
-
-  }else if(x ==2){
-
-  }else{
-
-  }
-
-
-  switch(x){
-    case x==1:
-      //code
+//   if( 4 > 5 ) {
+//     console.log('xxxxx');
+//   }
+//   console.log('always run');
+//
+//
+//   5 > 4?console.log("4大于5"):console.log('5大于4');//  true/false? true-code:false-code ;
+//
+//   if(x == y){
+//     //A
+//     if(a == b){
+//
+//     }else{
+//
+//     }
+//   }else if(x > y ){
+//     //B
+//   }else{
+//     //C
+//   }
+//
+//   if(x>5&&y<6){ // true&&true
+//     //A
+//   }
+//
+//   if(x<10 || y>8){  //x=11  11<10? false  y=9 9>8 true
+//     //B
+//   }
+//
+//   if(!(x>y)){
+//     //x = 5  y=6  5>6 false  !false == true
+//     //x = 6 y = 5 6>5  true  !true ===false
+//    }
+//
+//   if(x==1){
+//
+//   }else if(x ==2){
+//
+//   }else{
+//
+//   }
+//
+//
+//   switch(x){
+//     case x==1:
+//       //code
+//       break;
+//     case x==2:
+//       break;
+//     case x==3:
+//       break;
+//     case x==4:
+//
+//       break;
+//     case x==5:
+//       break;
+//     case x==6:
+//       break;
+//     case x==7:
+//       break;
+//     default:
+//       //x=8
+//           console.log('你输入的不是周几')
+//   }
+//
+// let x =prompt('xxxx','xxx');
+  let day = prompt('请输入周几');
+  console.log((5>4));
+  console.log(day == 60);
+  switch (day) {
+    case 60:
+      console.log('Monday');
       break;
-    case x==2:
+    case '周二':
+      console.log('Tuesday');
       break;
-    case x==3:
+    case '周三':
+      console.log('Wednesday');
       break;
-    case x==4:
-
+    case '周四':
+      console.log('Thursday');
       break;
-    case x==5:
+    case '周五':
+      console.log('Friday');
       break;
-    case x==6:
+    case '周六':
+      console.log('Saturday');
       break;
-    case x==7:
+    case '周日':
+      console.log('Sunday');
       break;
     default:
-      //x=8
-          console.log('你输入的不是周几')
+          console.log('输入有误');
   }
 
-let x =prompt('xxxx','xxx');
+  if(day=='周一'){
+    console.log('xxx');
+  }else{
+    console.log('yyy');
+  }
+
+  day=='周一'?console.log('xxx')/*true*/: console.log('yyy')/*false*/;  //  expersion ? x : y;
+
 </script>
 </html>

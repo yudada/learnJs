@@ -21,7 +21,15 @@
   -->
 </body>
 <script>
-  function showItem(i,current) {
+  let lis = document.querySelectorAll('ul li');//3 0-3  3
+  for(let i =0 ; i< lis.length;i++){
+    // (function(i){
+      lis[i].onclick = function(){
+        this.textContent = i;
+      }
+    // })(i);
+  }
+  /*function showItem(i,current) {
     console.log(current);
     current.textContent = i;
   }
@@ -52,6 +60,6 @@
    //      this.textContent = n;
    //    }
    //  })(i);
-  }
+  }*/
 </script>
 </html>

@@ -8,6 +8,8 @@
 
 </body>
 <script>
+  let start = performance.now();
+  console.log(start);
   for (let i = 100; i < 1000; i++){
     // 101%10 = 1
     //101/100 = 1
@@ -19,5 +21,7 @@
       console.log('水仙花数：'+i);
     }
   }
+  let end = performance.now();
+  console.log(end-start);
 </script>
 </html>

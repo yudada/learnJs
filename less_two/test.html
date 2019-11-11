@@ -16,16 +16,27 @@
          *****      1=4-3        5=2*3-1
         *******     0=4-4        7=2*4-1
         第i行,空格n-i,星号2*i-1 */
-  document.write("正金字塔<br/>");
-  let n =4;
-  for(i=1;i<=n;i++){
-    for(j=1;j<=n-i;j++){
-      document.write("&nbsp;");
+  // document.write("正金字塔<br/>");
+  // let n =4;
+  // for(i=1;i<=n;i++){
+  //   for(j=1;j<=n-i;j++){
+  //     document.write("&nbsp;");
+  //   }
+  //   for(k=1;k<=2*i-1;k++){
+  //     document.write("*")
+  //   }
+  //   document.write("<br/>")
+  // }
+
+  let l = 7;
+  for (let n=1;n<=l;n++){
+    for (j=1;j<=n-1;j++){
+      document.write('&nbsp;');
     }
-    for(k=1;k<=2*i-1;k++){
-      document.write("*")
+    for(let k=1;k<=(2*l-1)-(n-1)*2;k++){
+      document.write('*');
     }
-    document.write("<br/>")
+    document.write('<br/>');
   }
 </script>
 </html>
